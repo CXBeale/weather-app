@@ -4,8 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Weather App</title>
 </head>
 <body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Weather App</h1>
+            <form id="location-form">
+                <label for="location-input">Location</label><br>
+                <input type="text" id="location-input" placeholder="Enter location">
+                <button type="submit">Get Weather</button>
+            </form>
+        </div>
+    </header>
+    <main>
+        <div id="weather-details"></div>
+    </main>
     <h1> The Weather App</h1>
     <p>this is a weather app.</p>
 </body>
