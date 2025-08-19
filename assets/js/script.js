@@ -24,7 +24,7 @@ let currentUnit = 'metric'; // 'metric' (°C, m/s) or 'imperial' (°F, mph)
 let lastLocation = null;    // { lat, lon, cityName }
 let favorites = [];         // not implemented fully (placeholders)
 let compare = [];           // not implemented fully (placeholders)
-let weatherMap;             // for Leaflet map instance
+// let weatherMap;             // for Leaflet map instance
 
 // --- Events ---
 locationForm.addEventListener('submit', function (e) {
@@ -264,39 +264,129 @@ function renderCompare() { /* TODO */ }
 
 
 // Utility: Show interactive weather map with OpenWeatherMap layers
-function showWeatherMap(lat, lon) {
-    // If a map already exists in the container, reuse it and just set the new view.
-    // Creating a new L.map on an existing container causes the "Map container is already initialized" error.
-    if (weatherMap) {
-       weatherMap.setView([lat, lon], 6);
-       return;
+// Initialize map
+  //function initMap() {
+   // weatherMap = L.map("map").setView([51.505, -0.09], 5); // default: London
+
+    // Base layer
+   // L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    //  attribution: "© OpenStreetMap contributors"
+   // }).addTo(weatherMap);
+
+    // Weather overlay layers
+   // const clouds = L.tileLayer(
+   //    `https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=${apiKey}`,
+   //    { opacity: 0.5 }
+   // );
+   // const precip = L.tileLayer(
+   //    `https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${apiKey}`,
+   //    { opacity: 0.5 }
+   // );
+   // const temp = L.tileLayer(
+   //   `https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${apiKey}`,
+   //   { opacity: 0.5 }
+   // );
+
+    // Add default layers
+   // clouds.addTo(weatherMap);
+
+    // Layer toggle control
+   // L.control.layers(null, {
+     // "Clouds": clouds,
+     // "Precipitation": precip,
+     // "Temperature": temp
+   // }).addTo(weatherMap);
+
+    // Click event: fetch weather + add marker
+   // weatherMap.on("click", async function (e) {
+     // const { lat, lng } = e.latlng;
+
+      // Fetch current weather
+     // const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${apiKey}&units=metric`;
+     // const res = await fetch(url);
+     // const data = await res.json();
+
+     // const weatherInfo = `
+    //    <b>${data.name || "Selected Location"}</b><br>
+    //    Temp: ${data.main.temp} °C<br>
+     //   ${data.weather[0].description}
+     // `;
+
+      // Remove old marker if exists
+     // if (marker) weatherMap.removeLayer(marker);
+
+      // Add new marker with popup
+    //  marker = L.marker([lat, lng]).addTo(weatherMap).bindPopup(weatherInfo).openPopup();
+    //});
+  //}
+
+  // Call on load
+//  initMap();
+
+let marker;
+
+    function initMap() {
+      // Default center: London
+      weatherMap = L.map("map").setView([51.505, -0.09], 5);
+
+      // Base OSM tiles
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors"
+      }).addTo(weatherMap);
+
+      // Weather overlay layers
+      const clouds = L.tileLayer(
+        `https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=${API_KEY}`,
+        { opacity: 0.5 }
+      );
+      const precipitation = L.tileLayer(
+        `https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${API_KEY}`,
+        { opacity: 0.5 }
+      );
+      const temperature = L.tileLayer(
+        `https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${API_KEY}`,
+        { opacity: 0.5 }
+      );
+
+      clouds.addTo(weatherMap); // show clouds by default
+
+      // Overlay toggle control
+      L.control.layers(null, {
+        "Clouds": clouds,
+        "Precipitation": precipitation,
+        "Temperature": temperature
+      }).addTo(weatherMap);
+
+      // Click event → fetch weather data
+      weatherMap.on("click", async function (e) {
+        const { lat, lng } = e.latlng;
+
+        try {
+          const url = `${BASE_URL}weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric`;
+          const res = await fetch(url);
+          const data = await res.json();
+
+          const popupText = `
+            <b>${data.name || "Selected Location"}</b><br>
+            🌡️ Temp: ${data.main?.temp ?? "N/A"} °C<br>
+            ☁️ ${data.weather?.[0]?.description ?? "No data"}
+          `;
+
+          if (marker) weatherMap.removeLayer(marker);
+
+          marker = L.marker([lat, lng])
+            .addTo(weatherMap)
+            .bindPopup(popupText)
+            .openPopup();
+
+        } catch (err) {
+          alert("Could not fetch weather data. Check API key or network.");
+          console.error(err);
+        }
+      });
     }
 
-    // Initialize a Leaflet map centered on the provided coordinates and store it.
-    weatherMap = L.map('map').setView([lat, lon], 6);
-
-    // Base tiles (OpenStreetMap)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        //  attribution: '© OpenStreetMap contributors'
-    }).addTo(weatherMap);
-
-    // Overlay weather tiles from OpenWeatherMap (clouds, precipitation, temp)
-    // Each layer is semi-transparent so you can see the base map beneath.
-    const apiKey = API_KEY; // use the correct API key constant
-    L.tileLayer(`https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=${apiKey}`, {
-        attribution: 'Clouds © OpenWeatherMap',
-        opacity: 0.5
-    }).addTo(weatherMap);
-    L.tileLayer(`https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${apiKey}`, {
-        attribution: 'Precipitation © OpenWeatherMap',
-        opacity: 0.5
-    }).addTo(weatherMap);
-    L.tileLayer(`https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${apiKey}`, {
-        attribution: 'Temperature © OpenWeatherMap',
-        opacity: 0.5
-    }).addTo(weatherMap);
-}
-
+    initMap();
 
 
 
