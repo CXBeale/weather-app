@@ -1,32 +1,86 @@
-        header.hero {
-            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-            min-height: 300px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-        }
-        .hero-content {
-            background: rgba(0,0,0,0.4);
-            padding: 2rem;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .hero-content label {
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-        .hero-content input[type="text"] {
-            padding: 0.5rem;
-            border-radius: 5px;
-            border: none;
-            margin-bottom: 1rem;
-            width: 200px;
-        }
-        .hero-content h1 {
-            margin-bottom: 1rem;
-        }
+/* Reset some default browser styles */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+}
+
+.container-fluid {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.weather-header {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 10px;
+}
+
+.weather-info {
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.forecast-info {
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.form {
+    margin-bottom: 20px;
+}
+
+.form-input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+}
+
+.search-button {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+#history {
+    list-style: none;
+}
+
+.list-group-item {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.list-group-item:hover {
+    background-color: #f0f0f0;
+}
