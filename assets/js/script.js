@@ -110,6 +110,9 @@ function renderCurrentWeather(currentData, cityName) {
   const humidity      = currentData.main && typeof currentData.main.humidity !== 'undefined' ? currentData.main.humidity : 0;
   const wind          = Math.round(currentData.wind && typeof currentData.wind.speed !== 'undefined' ? currentData.wind.speed : 0);
   const icon          = getWeatherIcon(mainCond);
+    // Get sunrise and sunset times
+    const sunrise = currentData.sys && currentData.sys.sunrise ? new Date(currentData.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }) : 'N/A';
+    const sunset  = currentData.sys && currentData.sys.sunset  ? new Date(currentData.sys.sunset  * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }) : 'N/A';
 
   weatherDetails.innerHTML = `
     <div class="card p-3 d-flex gap-2 align-items-start">
@@ -119,6 +122,10 @@ function renderCurrentWeather(currentData, cityName) {
           <h3 class="m-0">${cityName}</h3>
           <div class="text-muted text-capitalize">${conditionDesc}</div>
         </div>
+          <div class="ms-auto d-flex flex-column align-items-end">
+            <div><i class="fas fa-sun text-warning"></i> <span title="Sunrise">${sunrise}</span></div>
+            <div><i class="fas fa-moon text-info"></i> <span title="Sunset">${sunset}</span></div>
+          </div>
       </div>
       <div class="mt-2">
         <div><strong>Temp:</strong> ${temp}${currentUnit === 'metric' ? '°C' : '°F'}</div>
@@ -256,3 +263,8 @@ function addFavorite(city) { /* TODO */ }
 function renderFavorites()   { /* TODO */ }
 function compareCityWeather(city) { /* TODO */ }
 function renderCompare() { /* TODO */ }
+
+// Show London weather by default after DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  fetchWeather('London');
+});
