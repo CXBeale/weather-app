@@ -1,104 +1,11 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-/* Reset some default browser styles */
-body,
-h1,
-h2,
-h3,
-p,
-ul,
-li {
-    margin: 0;
-    padding: 0;
-}
-
-
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f7f7f7;
-}
-
-.container-fluid {
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.weather-header {
-    background-color: #343a40;
-    color: #ffffff;
-    padding: 10px;
-}
-
-.weather-info {
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    background-color: #ffffff;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.forecast-info {
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    background-color: #ffffff;
-    padding: 10px;
-    margin-right: 10px;
-}
-
-.form {
-    margin-bottom: 20px;
-}
-
-.form-input {
-    width: 70%;
-    padding: 10px;
-    border: 1px solid #dddddd;
-    border-radius: 5px;
-}
-
-.search-button {
-    background-color: #007bff;
-    color: #ffffff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.search-button:hover {
-    background-color: #0056b3;
-}
-
-#history {
-    list-style: none;
-}
-
-.list-group-item {
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.list-group-item:hover {
-    background-color: #f0f0f0;
-}
-=======
->>>>>>> main
 body {
     background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
     min-height: 100vh;
     transition: background 0.5s;
 }
-
 .navbar {
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
-
 #location-form .form-control {
     border-radius: 30px 0 0 30px;
     font-size: 1.1rem;
@@ -110,7 +17,6 @@ body {
 #geo-btn {
     border-radius: 30px;
 }
-
 #weather-details.card {
     background: rgba(255,255,255,0.85);
     border: none;
@@ -119,7 +25,6 @@ body {
     min-height: 220px;
     margin-bottom: 1rem;
 }
-
 #hourly-forecast,
 #daily-forecast {
     gap: 1rem;
@@ -130,11 +35,10 @@ body {
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     min-width: 120px;
-    flex: 0 0 auto;       /* 👈 makes scrolling rows behave neatly */
+    flex: 0 0 auto;       /* makes scrolling rows behave neatly */
     padding: 1rem;
     text-align: center;
 }
-
 #favorites-list {
     margin-top: 1rem;
 }
@@ -143,27 +47,23 @@ body {
     margin-bottom: 0.5rem;
     background: #f7f9fc;
 }
-
 #compare-cities .card {
     margin-bottom: 1rem;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
-
 #unit-toggle,
 #theme-toggle {
     border-radius: 30px;
     font-size: 1rem;
     min-width: 120px;
 }
-
 #suggestions {
     font-size: 1.1rem;
     font-style: italic;
     color: #0077b6;
     text-align: center;
 }
-
 /* Dynamic backgrounds for weather */
 .weather-sunny {
     background: linear-gradient(120deg, #fceabb 0%, #f8b500 100%);
@@ -177,7 +77,6 @@ body {
 .weather-cloudy {
     background: linear-gradient(120deg, #d7d2cc 0%, #304352 100%);
 }
-
 /* Dark mode */
 .dark-mode {
     background: linear-gradient(120deg, #232526 0%, #414345 100%);
@@ -198,7 +97,6 @@ body {
     color: #f8b500;
     text-align: center;
 }
-
 /* Optional: make icons adjust in dark mode */
 .dark-mode i.text-secondary,
 .dark-mode i.text-primary,
@@ -206,7 +104,3 @@ body {
 .dark-mode i.text-info {
     color: #f7f9fc !important;
 }
-<<<<<<< HEAD
-=======
->>>>>>> soumyabranch
->>>>>>> main
