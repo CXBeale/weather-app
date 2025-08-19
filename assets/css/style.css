@@ -241,3 +241,14 @@ body {
 .dark-mode i.text-info {
     color: #f7f9fc !important;
 }
+
+/* Map container */
+#map {
+    height: 300px;
+    border-radius: 8px;
+    margin-top: 20px;
+  /* ensure the map stays behind forecast cards */
+  position: relative;
+  z-index: 0;
+}
+
