@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
 /* Reset some default browser styles */
 body,
 h1,
@@ -87,8 +85,7 @@ body {
 .list-group-item:hover {
     background-color: #f0f0f0;
 }
-=======
->>>>>>> main
+
 body {
     background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
     min-height: 100vh;
@@ -206,7 +203,4 @@ body {
 .dark-mode i.text-info {
     color: #f7f9fc !important;
 }
-<<<<<<< HEAD
-=======
->>>>>>> soumyabranch
->>>>>>> main
+

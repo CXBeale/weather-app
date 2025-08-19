@@ -75,4 +75,4 @@ Bootstrap: For layout, components, and responsive design.
 Code Institute: For project templates and guidance.
 Google Font: For fonts.
 Favicon: For favicon image.
-Team Members: Idil Ismail,Christian ,Nick , and Soumya, for contributing to the development and testing.
+Team Members: Idil Ismail, Christian Beale , Nick Ncube , and Soumya Sharma, for contributing to the development and testing.
