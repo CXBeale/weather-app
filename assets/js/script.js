@@ -90,7 +90,7 @@ async function fetchWeatherByCoords(lat, lon, cityName) {
     const currentData  = await currentRes.json();
     const forecastData = await forecastRes.json();
 
-    const name = cityName || currentData.name || 'Location';
+    const name = currentData.name || cityName || 'Location';
     lastLocation = { lat: lat, lon: lon, cityName: name };
 
     renderCurrentWeather(currentData, name);
