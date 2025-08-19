@@ -1,104 +1,21 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-/* Reset some default browser styles */
-body,
-h1,
-h2,
-h3,
-p,
-ul,
-li {
-    margin: 0;
-    padding: 0;
-}
-
-
-
+/* ================================
+   Base page styles
+   ================================ */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f7f7f7;
-}
-
-.container-fluid {
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.weather-header {
-    background-color: #343a40;
-    color: #ffffff;
-    padding: 10px;
-}
-
-.weather-info {
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    background-color: #ffffff;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.forecast-info {
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    background-color: #ffffff;
-    padding: 10px;
-    margin-right: 10px;
-}
-
-.form {
-    margin-bottom: 20px;
-}
-
-.form-input {
-    width: 70%;
-    padding: 10px;
-    border: 1px solid #dddddd;
-    border-radius: 5px;
-}
-
-.search-button {
-    background-color: #007bff;
-    color: #ffffff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.search-button:hover {
-    background-color: #0056b3;
-}
-
-#history {
-    list-style: none;
-}
-
-.list-group-item {
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.list-group-item:hover {
-    background-color: #f0f0f0;
-}
-=======
->>>>>>> main
-body {
+    /* Default light gradient background */
     background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
     min-height: 100vh;
-    transition: background 0.5s;
+    transition: background 0.5s; /* smooth background changes */
 }
 
+/* Subtle shadow under the navbar */
 .navbar {
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
+/* ================================
+   Search form (rounded pill input + button)
+   ================================ */
 #location-form .form-control {
     border-radius: 30px 0 0 30px;
     font-size: 1.1rem;
@@ -111,6 +28,9 @@ body {
     border-radius: 30px;
 }
 
+/* ================================
+   Current weather card
+   ================================ */
 #weather-details.card {
     background: rgba(255,255,255,0.85);
     border: none;
@@ -120,21 +40,32 @@ body {
     margin-bottom: 1rem;
 }
 
+/* ================================
+   Forecast rows (hourly & daily)
+   ================================ */
 #hourly-forecast,
 #daily-forecast {
     gap: 1rem;
+    /* ADDED: make the list display as a horizontal row and scroll if overflow */
+    display: flex;        /* ensures forecast cards line up in a row */
+    overflow-x: auto;     /* allows horizontal scroll on small screens */
 }
+
 #hourly-forecast .forecast-card,
 #daily-forecast .forecast-card {
     background: rgba(255,255,255,0.85);
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     min-width: 120px;
-    flex: 0 0 auto;       /* 👈 makes scrolling rows behave neatly */
+    flex: 0 0 auto;       /* keeps each card from shrinking; good for horizontal scroll */
     padding: 1rem;
     text-align: center;
+    /* (Optional) you can add scroll-snap if you want snapping later */
 }
 
+/* ================================
+   Favorites list
+   ================================ */
 #favorites-list {
     margin-top: 1rem;
 }
@@ -144,12 +75,18 @@ body {
     background: #f7f9fc;
 }
 
+/* ================================
+   Compare cities cards
+   ================================ */
 #compare-cities .card {
     margin-bottom: 1rem;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
+/* ================================
+   Unit / Theme toggles
+   ================================ */
 #unit-toggle,
 #theme-toggle {
     border-radius: 30px;
@@ -157,6 +94,9 @@ body {
     min-width: 120px;
 }
 
+/* ================================
+   Suggestions text (helper tips)
+   ================================ */
 #suggestions {
     font-size: 1.1rem;
     font-style: italic;
@@ -164,7 +104,10 @@ body {
     text-align: center;
 }
 
-/* Dynamic backgrounds for weather */
+/* ================================
+   Dynamic backgrounds for weather
+   (Your JS toggles these classes on <body>)
+   ================================ */
 .weather-sunny {
     background: linear-gradient(120deg, #fceabb 0%, #f8b500 100%);
 }
@@ -178,14 +121,18 @@ body {
     background: linear-gradient(120deg, #d7d2cc 0%, #304352 100%);
 }
 
-/* Dark mode */
+/* ================================
+   Dark mode override
+   (Toggled by adding .dark-mode to <body>)
+   ================================ */
 .dark-mode {
     background: linear-gradient(120deg, #232526 0%, #414345 100%);
     color: #f7f9fc;
 }
 .dark-mode .navbar {
-    background: #232526 !important;
+    background: #232526 !important; /* keep navbar dark even if Bootstrap overrides */
 }
+/* Make cards readable on dark backgrounds */
 .dark-mode #weather-details.card,
 .dark-mode #hourly-forecast .forecast-card,
 .dark-mode #daily-forecast .forecast-card,
@@ -196,17 +143,15 @@ body {
 }
 .dark-mode #suggestions {
     color: #f8b500;
-    text-align: center;
+    text-align: center; /* ADDED: keep consistent with light mode */
 }
 
-/* Optional: make icons adjust in dark mode */
+/* ================================
+   Font Awesome icon colors in dark mode
+   ================================ */
 .dark-mode i.text-secondary,
 .dark-mode i.text-primary,
 .dark-mode i.text-warning,
 .dark-mode i.text-info {
     color: #f7f9fc !important;
 }
-<<<<<<< HEAD
-=======
->>>>>>> soumyabranch
->>>>>>> main
