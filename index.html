@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">    
+<html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,6 +14,9 @@
     integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
   <!--- custom CSS Link------>
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Leaflet CSS for maps -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 
 <body>
@@ -91,19 +95,31 @@
       </div>
     </div>
   </div>
-  
+  <!-- Map for location -->
+  <div id="map" style="height: 400px; border-radius: 10px; margin: 2rem 0;"></div>
+
+  <!-- Footer: social icon links (Font Awesome) -->
+
   <footer>
     <div class="text-center py-3">
-      <p>&copy; 2023 Weather App. All rights reserved.</p>
-      <p>Developed by 
-      <a href="https://github.com/CXBeale" target="_blank" title="Christian Beale"><i class="fab fa-github fa-lg"></i></a>
-      <a href="https://github.com/Nickncube" target="_blank" title="Nick Ncube"><i class="fab fa-github fa-lg"></i></a> | 
-      <a href="https://github.com/soumya2219" target="_blank" title="Soumya Sharma"><i class="fab fa-github fa-lg"></i></a> | 
-      <a href="https://github.com/iismail06" target="_blank" title="Idil Ismail"><i class="fab fa-github fa-lg"></i></a> | 
-      <a href="https://www.linkedin.com/in/christian-beale-b0b5771b2/" target="_blank" title="Christian Beale"><i class="fab fa-linkedin fa-lg"></i></a> | 
-      <a href="https://linkedin.com/in/yourlinkedin2" target="_blank" title="Nick Ncube"><i class="fab fa-linkedin fa-lg"></i></a> | 
-      <a href="https://www.linkedin.com/in/soumya-sharma-a34b76374/" target="_blank" title="Soumya Sharma"><i class="fab fa-linkedin fa-lg"></i></a> | 
-      <a href="https://www.linkedin.com/in/idil-ismail-2398799b/" target="_blank" title="Idil Ismail"><i class="fab fa-linkedin fa-lg"></i></a>
+      <p>&copy; 2023 Weather App.</p>
+      <p>Developed by
+        <a href="https://github.com/CXBeale" target="_blank" title="Christian Beale"><i
+            class="fab fa-github fa-lg"></i></a>
+        <a href="https://github.com/Nickncube" target="_blank" title="Nick Ncube"><i
+            class="fab fa-github fa-lg"></i></a> |
+        <a href="https://github.com/soumya2219" target="_blank" title="Soumya Sharma"><i
+            class="fab fa-github fa-lg"></i></a> |
+        <a href="https://github.com/iismail06" target="_blank" title="Idil Ismail"><i
+            class="fab fa-github fa-lg"></i></a> |
+        <a href="https://www.linkedin.com/in/christian-beale-b0b5771b2/" target="_blank" title="Christian Beale"><i
+            class="fab fa-linkedin fa-lg"></i></a> |
+        <a href="https://linkedin.com/in/yourlinkedin2" target="_blank" title="Nick Ncube"><i
+            class="fab fa-linkedin fa-lg"></i></a> |
+        <a href="https://www.linkedin.com/in/soumya-sharma-a34b76374/" target="_blank" title="Soumya Sharma"><i
+            class="fab fa-linkedin fa-lg"></i></a> |
+        <a href="https://www.linkedin.com/in/idil-ismail-2398799b/" target="_blank" title="Idil Ismail"><i
+            class="fab fa-linkedin fa-lg"></i></a>
       </p>
     </div>
     </div>
@@ -116,6 +132,10 @@
     integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
     crossorigin="anonymous"></script>
   <!-- Custom JS script -->
+  <!-- Leaflet JS for maps -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- Custom JS script -->
   <script src="assets/js/script.js"></script>
 </body>
+
 </html>

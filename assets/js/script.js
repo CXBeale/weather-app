@@ -1,3 +1,7 @@
+// Test: Show map on page load with default coordinates (London)
+window.addEventListener('DOMContentLoaded', function() {
+  showWeatherMap(51.5074, -0.1278); // London coordinates
+});
 // ===== Weather App (Simple JS) =====
 const API_KEY = '415b5436af0634bd2fea085e6b03c4e4';
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/';
@@ -20,6 +24,7 @@ let currentUnit = 'metric'; // 'metric' (°C, m/s) or 'imperial' (°F, mph)
 let lastLocation = null;    // { lat, lon, cityName }
 let favorites = [];         // not implemented fully (placeholders)
 let compare = [];           // not implemented fully (placeholders)
+let weatherMap;             // for Leaflet map instance
 
 // --- Events ---
 locationForm.addEventListener('submit', function (e) {
@@ -256,3 +261,43 @@ function addFavorite(city) { /* TODO */ }
 function renderFavorites()   { /* TODO */ }
 function compareCityWeather(city) { /* TODO */ }
 function renderCompare() { /* TODO */ }
+
+
+// Utility: Show interactive weather map with OpenWeatherMap layers
+function showWeatherMap(lat, lon) {
+    // If a map already exists in the container, reuse it and just set the new view.
+    // Creating a new L.map on an existing container causes the "Map container is already initialized" error.
+    if (weatherMap) {
+       weatherMap.setView([lat, lon], 6);
+       return;
+    }
+
+    // Initialize a Leaflet map centered on the provided coordinates and store it.
+    weatherMap = L.map('map').setView([lat, lon], 6);
+
+    // Base tiles (OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        //  attribution: '© OpenStreetMap contributors'
+    }).addTo(weatherMap);
+
+    // Overlay weather tiles from OpenWeatherMap (clouds, precipitation, temp)
+    // Each layer is semi-transparent so you can see the base map beneath.
+    const apiKey = API_KEY; // use the correct API key constant
+    L.tileLayer(`https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=${apiKey}`, {
+        attribution: 'Clouds © OpenWeatherMap',
+        opacity: 0.5
+    }).addTo(weatherMap);
+    L.tileLayer(`https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${apiKey}`, {
+        attribution: 'Precipitation © OpenWeatherMap',
+        opacity: 0.5
+    }).addTo(weatherMap);
+    L.tileLayer(`https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${apiKey}`, {
+        attribution: 'Temperature © OpenWeatherMap',
+        opacity: 0.5
+    }).addTo(weatherMap);
+}
+
+
+
+
+
