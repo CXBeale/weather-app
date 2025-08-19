@@ -126,7 +126,7 @@ body {
    (Toggled by adding .dark-mode to <body>)
    ================================ */
 .dark-mode {
-    background: linear-gradient(120deg, #232526 0%, #414345 100%);
+    /* background removed to allow weather backgrounds to show */
     color: #f7f9fc;
 }
 .dark-mode .navbar {

@@ -53,6 +53,10 @@ unitToggle.addEventListener('click', function () {
 themeToggle.addEventListener('click', function () {
   document.body.classList.toggle('dark-mode');
   themeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+  // Reapply weather background after toggling dark mode
+  if (lastLocation && lastLocation.weatherMain) {
+    setDynamicBackground(lastLocation.weatherMain);
+  }
 });
 
 // --- Fetch by city name (uses weather endpoint to resolve coords quickly) ---
@@ -105,6 +109,7 @@ async function fetchWeatherByCoords(lat, lon, cityName) {
 function renderCurrentWeather(currentData, cityName) {
   const conditionDesc = (currentData.weather && currentData.weather[0] && currentData.weather[0].description) ? currentData.weather[0].description : 'N/A';
   const mainCond      = (currentData.weather && currentData.weather[0] && currentData.weather[0].main) ? currentData.weather[0].main : '';
+  lastLocation.weatherMain = mainCond;
   const temp          = Math.round(currentData.main && typeof currentData.main.temp !== 'undefined' ? currentData.main.temp : 0);
   const feelsLike     = Math.round(currentData.main && typeof currentData.main.feels_like !== 'undefined' ? currentData.main.feels_like : 0);
   const humidity      = currentData.main && typeof currentData.main.humidity !== 'undefined' ? currentData.main.humidity : 0;
