@@ -21,7 +21,7 @@
 
 <body>
   <!-- Navbar/Header -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-0">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Weather App</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
@@ -29,6 +29,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <button id="unit-toggle" class="btn btn-outline-light me-2">°C / °F</button>
+          </li>
           <li class="nav-item">
             <button id="theme-toggle" class="btn btn-outline-light">Dark Mode</button>
           </li>
@@ -76,31 +79,22 @@
         <div class="col-md-12">
           <h4>Hourly Forecast</h4>
           <div id="hourly-forecast" class="d-flex flex-row overflow-auto mb-3"></div>
-          <h4>Daily Forecast</h4>
+          <h4>5 Day Forecast</h4>
           <div id="daily-forecast" class="d-flex flex-row overflow-auto"></div>
         </div>
       </div>
     </div> <!-- End unsplash-bg-container -->
     <!-- Favorites & Compare -->
-    <div class="row mb-4">
-      <div class="col-md-6">
-        <h5>Favourites</h5>
-        <button id="favorites-toggle" class="btn btn-outline-secondary mb-2" type="button">Show/Hide Favorites</button>
-        <ul id="favorites-list" class="list-group"></ul>
-      </div>
-      <div class="col-md-6">
-        <h5>Compare Cities</h5>
-        <div id="compare-cities" class="row"></div>
-      </div>
-    </div>
-    <!-- Toggles -->
-    <div class="row mb-4">
-      <div class="col-md-12 d-flex justify-content-between align-items-center">
-        <div>
-          <button id="unit-toggle" class="btn btn-outline-primary">°C / °F</button>
+    <div class="row mb-4 justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <div class="p-4 text-center" style="background: transparent; border: none; box-shadow: none; border-radius: 0;">
+          <h5>Favourites</h5>
+          <button id="favorites-toggle" class="btn btn-outline-primary mb-3" type="button">Show/Hide Favorites</button>
+          <ul id="favorites-list" class="list-group list-group-flush"></ul>
         </div>
       </div>
     </div>
+    <!-- Toggles -->
   </div>
   <!-- Map for location -->
   <div id="map" style="height: 500px; width: 100%;"></div>

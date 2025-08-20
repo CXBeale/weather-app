@@ -152,11 +152,25 @@ body {
    ================================ */
 #favorites-list {
     margin-top: 1rem;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+    border: none;
 }
 #favorites-list .list-group-item {
-    border-radius: 8px;
+    border-radius: 0;
     margin-bottom: 0.5rem;
-    background: #f7f9fc;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    font-size: 1.1rem;
+    font-family: inherit;
+    transition: background 0.2s;
+}
+#favorites-list .list-group-item:hover {
+    background: rgba(255,255,255,0.08);
+    box-shadow: none;
 }
 
 /* ================================
@@ -269,3 +283,10 @@ body {
 .dark-mode #weather-details.card {
     background: rgba(44,62,80,0.85);
 }
+.dark-mode h4 {
+    color: #fff !important;
+}
+
+/* ================================
+   Additional utility class
+   ================================ */
