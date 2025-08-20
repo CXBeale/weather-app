@@ -31,6 +31,8 @@ Slightly larger, bold fonts for key weather information to improve visibility.
 Wireframes were created to design the weather app layout:
 Wireframes were created to design the weather app layout:
 
+![wireframes](assets/images/wireframes.png)
+
 ## Testing
 
 ### HTML Validation
