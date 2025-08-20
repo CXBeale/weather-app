@@ -1,6 +1,9 @@
-// Test: Show map on page load with default coordinates (London)
+// Test: Show map on page load with default coordinates (London), and show london weather
 window.addEventListener('DOMContentLoaded', function() {
+  fetchWeather('London');
   showWeatherMap(51.5074, -0.1278); // London coordinates
+  
+
 });
 // ===== Weather App (Simple JS) =====
 const API_KEY = '415b5436af0634bd2fea085e6b03c4e4';
