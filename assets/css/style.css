@@ -53,7 +53,7 @@ body {
    Current weather card
    ================================ */
 #weather-details.card {
-    background: rgba(255,255,255,0.65);
+    background: rgba(255,255,255,0.45);
     border-radius: 0;
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     min-height: 250px;
@@ -245,11 +245,14 @@ body {
 }
 /* Make cards readable on dark backgrounds */
 /* Make cards readable on dark backgrounds */
-.dark-mode #weather-details.card,
 .dark-mode #hourly-forecast .forecast-card,
 .dark-mode #daily-forecast .forecast-card,
 .dark-mode #favorites-list .list-group-item,
 .dark-mode #compare-cities .card {
+    background: rgba(44,62,80,0.85);
+    color: #f7f9fc;
+}
+.dark-mode #fact-card {
     background: rgba(44,62,80,0.85);
     color: #f7f9fc;
 }
@@ -259,10 +262,10 @@ body {
     text-align: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.18);
 }
-
-/* ================================
-   Font Awesome icon colors in dark mode
-   ================================ */
-/* ================================
-   Font Awesome icon colors in dark mode
-   ================================ */
+.dark-mode #weather-details.card,
+.dark-mode #weather-details.card * {
+    color: #fff !important;
+}
+.dark-mode #weather-details.card {
+    background: rgba(44,62,80,0.85);
+}
