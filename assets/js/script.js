@@ -25,6 +25,17 @@ let compare = [];           // not implemented fully (placeholders)
 let weatherMap; // for Leaflet map instance
 
 // --- Events ---
+// Toggle favorites list visibility
+const favoritesToggle = document.getElementById('favorites-toggle');
+if (favoritesToggle && favoritesList) {
+  favoritesToggle.addEventListener('click', function () {
+    if (favoritesList.style.display === 'none') {
+      favoritesList.style.display = '';
+    } else {
+      favoritesList.style.display = 'none';
+    }
+  });
+}
 locationForm.addEventListener('submit', function (e) {
   e.preventDefault();
   const city = locationInput.value.trim();
@@ -118,6 +129,18 @@ function renderCurrentWeather(currentData, cityName) {
   const humidity      = currentData.main && typeof currentData.main.humidity !== 'undefined' ? currentData.main.humidity : 0;
   const wind          = Math.round(currentData.wind && typeof currentData.wind.speed !== 'undefined' ? currentData.wind.speed : 0);
   const icon          = getWeatherIcon(mainCond);
+    // Add to favorites (last 5 searched places)
+    const favoriteDetails = {
+      city: cityName,
+      temp: temp,
+      condition: conditionDesc,
+      icon: icon
+    };
+    // Remove if already exists (avoid duplicates)
+    favorites = favorites.filter(fav => fav.city !== cityName);
+    favorites.unshift(favoriteDetails);
+    if (favorites.length > 5) favorites.pop();
+    renderFavorites();
     // Get sunrise and sunset times
     const sunrise = currentData.sys && currentData.sys.sunrise ? new Date(currentData.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }) : 'N/A';
     const sunset  = currentData.sys && currentData.sys.sunset  ? new Date(currentData.sys.sunset  * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }) : 'N/A';
@@ -144,7 +167,7 @@ function renderCurrentWeather(currentData, cityName) {
     </div>
   `;
 
-  setDynamicBackground(mainCond);
+    setDynamicBackgroundWithUnsplash(cityName, mainCond);
   showSuggestions(mainCond, temp);
 }
 
@@ -216,6 +239,31 @@ function renderDailyForecast(data) {
 }
 
 // --- Background based on condition ---
+// --- Unsplash background based on city and condition ---
+const UNSPLASH_ACCESS_KEY = 'kUeQ6srQ_1kNgwuWJunoc7mXr_7ceX1vw8nE2yzI4e8';
+async function setDynamicBackgroundWithUnsplash(city, condition) {
+  const query = `${city} ${condition}`;
+  const url = `https://api.unsplash.com/photos/random?query=${encodeURIComponent(query)}&orientation=landscape&client_id=${UNSPLASH_ACCESS_KEY}`;
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    if (data && data.urls && data.urls.regular) {
+      const bgContainer = document.getElementById('unsplash-bg-container');
+      if (bgContainer) {
+        bgContainer.style.backgroundImage = `url('${data.urls.regular}')`;
+        bgContainer.style.backgroundSize = 'cover';
+        bgContainer.style.backgroundPosition = 'center';
+        bgContainer.style.backgroundRepeat = 'no-repeat';
+        bgContainer.style.minHeight = '1px'; // Prevent collapse
+      }
+      document.body.classList.remove('weather-sunny','weather-rainy','weather-snowy','weather-cloudy');
+    } else {
+      setDynamicBackground(condition);
+    }
+  } catch (err) {
+    setDynamicBackground(condition);
+  }
+}
 function setDynamicBackground(condition) {
   document.body.classList.remove('weather-sunny','weather-rainy','weather-snowy','weather-cloudy');
   if (/rain/i.test(condition)) {
@@ -268,7 +316,17 @@ function getWeatherIcon(condition) {
 
 /* --- Placeholders (optional features you can fill later) --- */
 function addFavorite(city) { /* TODO */ }
-function renderFavorites()   { /* TODO */ }
+function renderFavorites() {
+  favoritesList.innerHTML = '';
+  favorites.forEach(fav => {
+    favoritesList.innerHTML += `
+      <li class="list-group-item d-flex align-items-center gap-2">
+        <i class="${fav.icon}" style="font-size:1.2rem;"></i>
+        <span><strong>${fav.city}</strong> - ${fav.temp}°${currentUnit === 'metric' ? 'C' : 'F'}, ${fav.condition}</span>
+      </li>
+    `;
+  });
+}
 function compareCityWeather(city) { /* TODO */ }
 function renderCompare() { /* TODO */ }
 
