@@ -27,7 +27,7 @@ let currentUnit = 'metric'; // 'metric' (°C, m/s) or 'imperial' (°F, mph)
 let lastLocation = null;    // { lat, lon, cityName }
 let favorites = [];         // not implemented fully (placeholders)
 let compare = [];           // not implemented fully (placeholders)
-// let weatherMap;             // for Leaflet map instance
+ let weatherMap;             // for Leaflet map instance
 
 // --- Events ---
 locationForm.addEventListener('submit', function (e) {
