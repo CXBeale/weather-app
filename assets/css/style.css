@@ -31,7 +31,7 @@ body {
     font-size: 1.1rem;
 }
 #geo-btn {
-    border-radius: 30px;
+    border-radius: 0 !important;
 }
 
 /* ================================
@@ -43,15 +43,16 @@ body {
 #weather-details.card {
     background: rgba(255,255,255,0.85);
     border: none;
-    border-radius: 20px;
+    border-radius: 0;
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     min-height: 220px;
     margin-bottom: 1rem;
+    color: #222;
 }
 
 #fact-card {
     background: rgba(255,255,255,0.95);
-    border-radius: 20px;
+    border-radius: 0;
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     min-height: 250px;
     max-height: 250px;
@@ -154,7 +155,7 @@ body {
    ================================ */
 #unit-toggle,
 #theme-toggle {
-    border-radius: 30px;
+    border-radius: 0;
     font-size: 1rem;
     min-width: 120px;
 }
@@ -173,7 +174,7 @@ body {
     background-color: #cfdef3;
     display: block;
     padding: 0.75rem 1.5rem;
-    border-radius: 18px;
+    border-radius: 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     max-width: 400px;
     margin-left: auto;
@@ -241,9 +242,3 @@ body {
 /* ================================
    Font Awesome icon colors in dark mode
    ================================ */
-.dark-mode i.text-secondary,
-.dark-mode i.text-primary,
-.dark-mode i.text-warning,
-.dark-mode i.text-info {
-    color: #f7f9fc !important;
-}
