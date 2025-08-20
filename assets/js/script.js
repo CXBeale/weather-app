@@ -1,6 +1,9 @@
-// Test: Show map on page load with default coordinates (London)
+// Test: Show map on page load with default coordinates (London), and show london weather
 window.addEventListener('DOMContentLoaded', function() {
+  fetchWeather('London');
   showWeatherMap(51.5074, -0.1278); // London coordinates
+  
+
 });
 // ===== Weather App (Simple JS) =====
 const API_KEY = '415b5436af0634bd2fea085e6b03c4e4';
@@ -58,6 +61,10 @@ unitToggle.addEventListener('click', function () {
 themeToggle.addEventListener('click', function () {
   document.body.classList.toggle('dark-mode');
   themeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+  // Reapply weather background after toggling dark mode
+  if (lastLocation && lastLocation.weatherMain) {
+    setDynamicBackground(lastLocation.weatherMain);
+  }
 });
 
 // --- Fetch by city name (uses weather endpoint to resolve coords quickly) ---
@@ -95,7 +102,7 @@ async function fetchWeatherByCoords(lat, lon, cityName) {
     const currentData  = await currentRes.json();
     const forecastData = await forecastRes.json();
 
-    const name = cityName || currentData.name || 'Location';
+    const name = currentData.name || cityName || 'Location';
     lastLocation = { lat: lat, lon: lon, cityName: name };
 
     renderCurrentWeather(currentData, name);
@@ -110,11 +117,15 @@ async function fetchWeatherByCoords(lat, lon, cityName) {
 function renderCurrentWeather(currentData, cityName) {
   const conditionDesc = (currentData.weather && currentData.weather[0] && currentData.weather[0].description) ? currentData.weather[0].description : 'N/A';
   const mainCond      = (currentData.weather && currentData.weather[0] && currentData.weather[0].main) ? currentData.weather[0].main : '';
+  lastLocation.weatherMain = mainCond;
   const temp          = Math.round(currentData.main && typeof currentData.main.temp !== 'undefined' ? currentData.main.temp : 0);
   const feelsLike     = Math.round(currentData.main && typeof currentData.main.feels_like !== 'undefined' ? currentData.main.feels_like : 0);
   const humidity      = currentData.main && typeof currentData.main.humidity !== 'undefined' ? currentData.main.humidity : 0;
   const wind          = Math.round(currentData.wind && typeof currentData.wind.speed !== 'undefined' ? currentData.wind.speed : 0);
   const icon          = getWeatherIcon(mainCond);
+    // Get sunrise and sunset times
+    const sunrise = currentData.sys && currentData.sys.sunrise ? new Date(currentData.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }) : 'N/A';
+    const sunset  = currentData.sys && currentData.sys.sunset  ? new Date(currentData.sys.sunset  * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }) : 'N/A';
 
   weatherDetails.innerHTML = `
     <div class="card p-3 d-flex gap-2 align-items-start">
@@ -124,6 +135,10 @@ function renderCurrentWeather(currentData, cityName) {
           <h3 class="m-0">${cityName}</h3>
           <div class="text-muted text-capitalize">${conditionDesc}</div>
         </div>
+          <div class="ms-auto d-flex flex-column align-items-end">
+            <div><i class="fas fa-sun text-warning"></i> <span title="Sunrise">${sunrise}</span></div>
+            <div><i class="fas fa-moon text-info"></i> <span title="Sunset">${sunset}</span></div>
+          </div>
       </div>
       <div class="mt-2">
         <div><strong>Temp:</strong> ${temp}${currentUnit === 'metric' ? '°C' : '°F'}</div>
@@ -262,71 +277,7 @@ function renderFavorites()   { /* TODO */ }
 function compareCityWeather(city) { /* TODO */ }
 function renderCompare() { /* TODO */ }
 
-let marker;
-
-    function initMap() {
-      // Default center: London
-      weatherMap = L.map("map").setView([51.505, -0.09], 5);
-
-      // Base OSM tiles
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "© OpenStreetMap contributors"
-      }).addTo(weatherMap);
-
-      // Weather overlay layers
-      const clouds = L.tileLayer(
-        `https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=${API_KEY}`,
-        { opacity: 0.5 }
-      );
-      const precipitation = L.tileLayer(
-        `https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${API_KEY}`,
-        { opacity: 0.5 }
-      );
-      const temperature = L.tileLayer(
-        `https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${API_KEY}`,
-        { opacity: 0.5 }
-      );
-
-      clouds.addTo(weatherMap); // show clouds by default
-
-      // Overlay toggle control
-      L.control.layers(null, {
-        "Clouds": clouds,
-        "Precipitation": precipitation,
-        "Temperature": temperature
-      }).addTo(weatherMap);
-
-      // Click event → fetch weather data
-      weatherMap.on("click", async function (e) {
-        const { lat, lng } = e.latlng;
-
-        try {
-          const url = `${BASE_URL}weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric`;
-          const res = await fetch(url);
-          const data = await res.json();
-
-          const popupText = `
-            <b>${data.name || "Selected Location"}</b><br>
-            🌡️ Temp: ${data.main?.temp ?? "N/A"} °C<br>
-            ☁️ ${data.weather?.[0]?.description ?? "No data"}
-          `;
-
-          if (marker) weatherMap.removeLayer(marker);
-
-          marker = L.marker([lat, lng])
-            .addTo(weatherMap)
-            .bindPopup(popupText)
-            .openPopup();
-
-        } catch (err) {
-          alert("Could not fetch weather data. Check API key or network.");
-          console.error(err);
-        }
-      });
-    }
-
-    initMap();
-
-
-
-
+// Show London weather by default after DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  fetchWeather('London');
+});
