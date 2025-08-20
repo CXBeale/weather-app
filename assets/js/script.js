@@ -1,8 +1,5 @@
 // Test: Show map on page load with default coordinates (London), and show london weather
-window.addEventListener('DOMContentLoaded', function() {
-  fetchWeather('London');
-  initWeatherMap(51.5074, -0.1278); // London coordinates
-});
+
 // ===== Weather App (Simple JS) =====
 const API_KEY = '415b5436af0634bd2fea085e6b03c4e4';
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/';
@@ -25,7 +22,7 @@ let currentUnit = 'metric'; // 'metric' (°C, m/s) or 'imperial' (°F, mph)
 let lastLocation = null;    // { lat, lon, cityName }
 let favorites = [];         // not implemented fully (placeholders)
 let compare = [];           // not implemented fully (placeholders)
- // let weatherMap;             // for Leaflet map instance
+let weatherMap; // for Leaflet map instance
 
 // --- Events ---
 locationForm.addEventListener('submit', function (e) {
@@ -292,7 +289,6 @@ function toFixed(n, d=2) {
 }
 
 /* ===== Map module ===== */
-let weatherMap = null;
 let clickMarker = null;
 
 function initWeatherMap(initialLat = 51.5074, initialLon = -0.1278, initialZoom = 6) {
@@ -388,7 +384,6 @@ async function selectLocationAndShowWeather(lat, lon, recenter = false) {
 
 /* ===== Init on load ===== */
 document.addEventListener('DOMContentLoaded', () => {
-  initWeatherMap(); // London by default
-  // If you want to preselect London and show popup immediately, uncomment:
-  // selectLocationAndShowWeather(51.5074, -0.1278, false);
+  fetchWeather('London');
+  initWeatherMap(51.5074, -0.1278); // London coordinates
 });
