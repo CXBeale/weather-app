@@ -241,9 +241,3 @@ body {
 /* ================================
    Font Awesome icon colors in dark mode
    ================================ */
-.dark-mode i.text-secondary,
-.dark-mode i.text-primary,
-.dark-mode i.text-warning,
-.dark-mode i.text-info {
-    color: #f7f9fc !important;
-}
