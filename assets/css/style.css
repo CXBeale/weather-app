@@ -1,3 +1,15 @@
+#unsplash-bg-container {
+    width: 100vw;
+    max-width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+    z-index: 0;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    /* min-height removed, restoring original state */
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 /* Import Google Font */
@@ -136,17 +148,28 @@ body {
    Current weather card
    ================================ */
 #weather-details.card {
-    background: rgba(255,255,255,0.85);
-    border: none;
+
+    background: rgba(255,255,255,0.45);
     border-radius: 0;
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    min-height: 220px;
+    min-height: 250px;
+    max-height: 250px;
+}
+
+#weather-details.card .card {
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    min-height: 250px;
     margin-bottom: 1rem;
     color: #222;
 }
 
 #fact-card {
-    background: rgba(255,255,255,0.95);
+
+    background: rgba(255,255,255,0.65);
     border-radius: 0;
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     min-height: 250px;
@@ -205,7 +228,6 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     min-width: 120px;
     flex: 0 0 auto;       /* keeps each card from shrinking; good for horizontal scroll */
-    flex: 0 0 auto;       /* keeps each card from shrinking; good for horizontal scroll */
     padding: 1rem;
     text-align: center;
     /* (Optional) you can add scroll-snap if you want snapping later */
@@ -213,6 +235,11 @@ body {
 }
 
 
+#daily-forecast .forecast-card {
+    margin-bottom: 3rem;
+}
+
+ main
 /* ================================
    Favorites list
    ================================ */
@@ -294,11 +321,17 @@ body {
     background: #232526 !important; /* keep navbar dark even if Bootstrap overrides */
 }
 /* Make cards readable on dark backgrounds */
-.dark-mode #weather-details.card,
+
+/* Make cards readable on dark backgrounds */
+ main
 .dark-mode #hourly-forecast .forecast-card,
 .dark-mode #daily-forecast .forecast-card,
 .dark-mode #favorites-list .list-group-item,
 .dark-mode #compare-cities .card {
+    background: rgba(44,62,80,0.85);
+    color: #f7f9fc;
+}
+.dark-mode #fact-card {
     background: rgba(44,62,80,0.85);
     color: #f7f9fc;
 }
@@ -309,14 +342,12 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.18);
 }
 
-/* ================================
-   Font Awesome icon colors in dark mode
-   ================================ */
+.dark-mode #weather-details.card,
+.dark-mode #weather-details.card * {
+    color: #fff !important;
+}
+.dark-mode #weather-details.card {
+    background: rgba(44,62,80,0.85);
 
-.dark-mode i.text-secondary,
-.dark-mode i.text-primary,
-.dark-mode i.text-warning,
-.dark-mode i.text-info {
-    color: #f7f9fc !important;
 }
 
