@@ -1,104 +1,23 @@
-
-
-/* Reset some default browser styles */
-body,
-h1,
-h2,
-h3,
-p,
-ul,
-li {
-    margin: 0;
-    padding: 0;
-}
-
-
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f7f7f7;
-}
-
-.container-fluid {
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.weather-header {
-    background-color: #343a40;
-    color: #ffffff;
-    padding: 10px;
-}
-
-.weather-info {
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    background-color: #ffffff;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.forecast-info {
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    background-color: #ffffff;
-    padding: 10px;
-    margin-right: 10px;
-}
-
-.form {
-    margin-bottom: 20px;
-}
-
-.form-input {
-    width: 70%;
-    padding: 10px;
-    border: 1px solid #dddddd;
-    border-radius: 5px;
-}
-
-.search-button {
-    background-color: #007bff;
-    color: #ffffff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.search-button:hover {
-    background-color: #0056b3;
-}
-
-#history {
-    list-style: none;
-}
-
-.list-group-item {
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.list-group-item:hover {
-    background-color: #f0f0f0;
-}
-
+/* ================================
+   Base page styles
+   ================================ */
 body {
     /* Default light gradient background */
     background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
     min-height: 100vh;
     transition: background 0.5s; /* smooth background changes */
+    transition: background 0.5s; /* smooth background changes */
 }
 
+/* Subtle shadow under the navbar */
 /* Subtle shadow under the navbar */
 .navbar {
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
+/* ================================
+   Search form (rounded pill input + button)
+   ================================ */
 /* ================================
    Search form (rounded pill input + button)
    ================================ */
@@ -117,6 +36,9 @@ body {
 /* ================================
    Current weather card
    ================================ */
+/* ================================
+   Current weather card
+   ================================ */
 #weather-details.card {
     background: rgba(255,255,255,0.85);
     border: none;
@@ -129,13 +51,20 @@ body {
 /* ================================
    Forecast rows (hourly & daily)
    ================================ */
+/* ================================
+   Forecast rows (hourly & daily)
+   ================================ */
 #hourly-forecast,
 #daily-forecast {
     gap: 1rem;
     /* ADDED: make the list display as a horizontal row and scroll if overflow */
     display: flex;        /* ensures forecast cards line up in a row */
     overflow-x: auto;     /* allows horizontal scroll on small screens */
+    /* ADDED: make the list display as a horizontal row and scroll if overflow */
+    display: flex;        /* ensures forecast cards line up in a row */
+    overflow-x: auto;     /* allows horizontal scroll on small screens */
 }
+
 
 #hourly-forecast .forecast-card,
 #daily-forecast .forecast-card {
@@ -144,11 +73,16 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     min-width: 120px;
     flex: 0 0 auto;       /* keeps each card from shrinking; good for horizontal scroll */
+    flex: 0 0 auto;       /* keeps each card from shrinking; good for horizontal scroll */
     padding: 1rem;
     text-align: center;
     /* (Optional) you can add scroll-snap if you want snapping later */
+    /* (Optional) you can add scroll-snap if you want snapping later */
 }
 
+/* ================================
+   Favorites list
+   ================================ */
 /* ================================
    Favorites list
    ================================ */
@@ -164,12 +98,18 @@ body {
 /* ================================
    Compare cities cards
    ================================ */
+/* ================================
+   Compare cities cards
+   ================================ */
 #compare-cities .card {
     margin-bottom: 1rem;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
+/* ================================
+   Unit / Theme toggles
+   ================================ */
 /* ================================
    Unit / Theme toggles
    ================================ */
@@ -183,6 +123,9 @@ body {
 /* ================================
    Suggestions text (helper tips)
    ================================ */
+/* ================================
+   Suggestions text (helper tips)
+   ================================ */
 #suggestions {
     font-size: 1.1rem;
     font-style: italic;
@@ -190,6 +133,10 @@ body {
     text-align: center;
 }
 
+/* ================================
+   Dynamic backgrounds for weather
+   (Your JS toggles these classes on <body>)
+   ================================ */
 /* ================================
    Dynamic backgrounds for weather
    (Your JS toggles these classes on <body>)
@@ -211,13 +158,19 @@ body {
    Dark mode override
    (Toggled by adding .dark-mode to <body>)
    ================================ */
+/* ================================
+   Dark mode override
+   (Toggled by adding .dark-mode to <body>)
+   ================================ */
 .dark-mode {
-    background: linear-gradient(120deg, #232526 0%, #414345 100%);
+    /* background removed to allow weather backgrounds to show */
     color: #f7f9fc;
 }
 .dark-mode .navbar {
     background: #232526 !important; /* keep navbar dark even if Bootstrap overrides */
+    background: #232526 !important; /* keep navbar dark even if Bootstrap overrides */
 }
+/* Make cards readable on dark backgrounds */
 /* Make cards readable on dark backgrounds */
 .dark-mode #weather-details.card,
 .dark-mode #hourly-forecast .forecast-card,
@@ -230,8 +183,12 @@ body {
 .dark-mode #suggestions {
     color: #f8b500;
     text-align: center; /* ADDED: keep consistent with light mode */
+    text-align: center; /* ADDED: keep consistent with light mode */
 }
 
+/* ================================
+   Font Awesome icon colors in dark mode
+   ================================ */
 /* ================================
    Font Awesome icon colors in dark mode
    ================================ */
@@ -241,15 +198,3 @@ body {
 .dark-mode i.text-info {
     color: #f7f9fc !important;
 }
-
-/* Map container */
-#map {
-    height: 300px;
-    border-radius: 8px;
-    margin-top: 20px;
-  /* ensure the map stays behind forecast cards */
-  position: relative;
-  z-index: 0;
-}
-
-
