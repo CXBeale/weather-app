@@ -131,6 +131,15 @@ body {
     font-style: italic;
     color: #0077b6;
     text-align: center;
+    background-color: #cfdef3;
+    display: block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 180px;
 }
 
 /* ================================
@@ -182,8 +191,9 @@ body {
 }
 .dark-mode #suggestions {
     color: #f8b500;
-    text-align: center; /* ADDED: keep consistent with light mode */
-    text-align: center; /* ADDED: keep consistent with light mode */
+    background-color: rgba(44,62,80,0.85);
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
 }
 
 /* ================================
