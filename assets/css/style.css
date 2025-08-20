@@ -8,12 +8,7 @@
     z-index: 0;
     padding-left: 2vw;
     padding-right: 2vw;
-}
-/* Unsplash background container: full width, edge-to-edge */
-#unsplash-bg-container {
-    position: relative;
-    box-sizing: border-box;
-    z-index: 0;
+    /* min-height removed, restoring original state */
 }
 
 /* ================================
@@ -139,11 +134,14 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     min-width: 120px;
     flex: 0 0 auto;       /* keeps each card from shrinking; good for horizontal scroll */
-    flex: 0 0 auto;       /* keeps each card from shrinking; good for horizontal scroll */
     padding: 1rem;
     text-align: center;
     /* (Optional) you can add scroll-snap if you want snapping later */
     /* (Optional) you can add scroll-snap if you want snapping later */
+}
+
+#daily-forecast .forecast-card {
+    margin-bottom: 3rem;
 }
 
 /* ================================
