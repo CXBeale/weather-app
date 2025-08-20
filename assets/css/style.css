@@ -1,6 +1,6 @@
-/* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+/* Import Google Font */
 /* Global Styles */
 body {
     font-family: 'Inter', sans-serif;
@@ -115,9 +115,7 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-/* ================================
-   Search form (rounded pill input + button)
-   ================================ */
+
 /* ================================
    Search form (rounded pill input + button)
    ================================ */
@@ -133,9 +131,7 @@ body {
     border-radius: 30px;
 }
 
-/* ================================
-   Current weather card
-   ================================ */
+
 /* ================================
    Current weather card
    ================================ */
@@ -189,9 +185,6 @@ body {
 /* ================================
    Forecast rows (hourly & daily)
    ================================ */
-/* ================================
-   Forecast rows (hourly & daily)
-   ================================ */
 #hourly-forecast,
 #daily-forecast {
     gap: 1rem;
@@ -218,9 +211,7 @@ body {
     /* (Optional) you can add scroll-snap if you want snapping later */
 }
 
-/* ================================
-   Favorites list
-   ================================ */
+
 /* ================================
    Favorites list
    ================================ */
@@ -233,9 +224,7 @@ body {
     background: #f7f9fc;
 }
 
-/* ================================
-   Compare cities cards
-   ================================ */
+
 /* ================================
    Compare cities cards
    ================================ */
@@ -245,9 +234,7 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
-/* ================================
-   Unit / Theme toggles
-   ================================ */
+
 /* ================================
    Unit / Theme toggles
    ================================ */
@@ -258,9 +245,6 @@ body {
     min-width: 120px;
 }
 
-/* ================================
-   Suggestions text (helper tips)
-   ================================ */
 /* ================================
    Suggestions text (helper tips)
    ================================ */
@@ -279,11 +263,6 @@ body {
     margin-right: auto;
     min-width: 180px;
 }
-
-/* ================================
-   Dynamic backgrounds for weather
-   (Your JS toggles these classes on <body>)
-   ================================ */
 /* ================================
    Dynamic backgrounds for weather
    (Your JS toggles these classes on <body>)
@@ -301,10 +280,7 @@ body {
     background: linear-gradient(120deg, #d7d2cc 0%, #304352 100%);
 }
 
-/* ================================
-   Dark mode override
-   (Toggled by adding .dark-mode to <body>)
-   ================================ */
+
 /* ================================
    Dark mode override
    (Toggled by adding .dark-mode to <body>)
@@ -315,9 +291,7 @@ body {
 }
 .dark-mode .navbar {
     background: #232526 !important; /* keep navbar dark even if Bootstrap overrides */
-    background: #232526 !important; /* keep navbar dark even if Bootstrap overrides */
 }
-/* Make cards readable on dark backgrounds */
 /* Make cards readable on dark backgrounds */
 .dark-mode #weather-details.card,
 .dark-mode #hourly-forecast .forecast-card,
@@ -334,9 +308,6 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.18);
 }
 
-/* ================================
-   Font Awesome icon colors in dark mode
-   ================================ */
 /* ================================
    Font Awesome icon colors in dark mode
    ================================ */
