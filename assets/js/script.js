@@ -281,3 +281,25 @@ function renderCompare() { /* TODO */ }
 document.addEventListener('DOMContentLoaded', function() {
   fetchWeather('London');
 });
+
+const weatherFacts = [
+  "The highest temperature ever recorded on Earth was 56.7°C (134°F) in Death Valley, USA.",
+  "Raindrops can fall at speeds of about 22 miles per hour.",
+  "Snowflakes can take up to an hour to reach the ground.",
+  "A bolt of lightning is five times hotter than the surface of the sun.",
+  "The coldest temperature ever recorded was -89.2°C (-128.6°F) in Antarctica.",
+  "The wettest place on Earth is Mawsynram, India.",
+  "Hurricanes can release the energy of 10,000 nuclear bombs.",
+  "The fastest wind speed ever recorded was 253 mph during Cyclone Olivia in 1996."
+];
+
+// Show a random weather fact on page load and when button is clicked
+function showRandomFact() {
+  const fact = weatherFacts[Math.floor(Math.random() * weatherFacts.length)];
+  document.getElementById('weather-fact').textContent = fact;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  showRandomFact();
+  document.getElementById('new-fact-btn').addEventListener('click', showRandomFact);
+});
