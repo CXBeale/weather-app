@@ -1,9 +1,7 @@
 // Test: Show map on page load with default coordinates (London), and show london weather
 window.addEventListener('DOMContentLoaded', function() {
   fetchWeather('London');
-  showWeatherMap(51.5074, -0.1278); // London coordinates
-  
-
+  initWeatherMap(51.5074, -0.1278); // London coordinates
 });
 // ===== Weather App (Simple JS) =====
 const API_KEY = '415b5436af0634bd2fea085e6b03c4e4';
@@ -27,7 +25,7 @@ let currentUnit = 'metric'; // 'metric' (°C, m/s) or 'imperial' (°F, mph)
 let lastLocation = null;    // { lat, lon, cityName }
 let favorites = [];         // not implemented fully (placeholders)
 let compare = [];           // not implemented fully (placeholders)
- let weatherMap;             // for Leaflet map instance
+ // let weatherMap;             // for Leaflet map instance
 
 // --- Events ---
 locationForm.addEventListener('submit', function (e) {
@@ -280,4 +278,117 @@ function renderCompare() { /* TODO */ }
 // Show London weather by default after DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
   fetchWeather('London');
+});
+
+
+/* ===== Minimal helpers ===== */
+function showMapLoading(show) {
+  const el = document.getElementById('map-loading');
+  if (!el) return;
+  el.style.display = show ? 'block' : 'none';
+}
+function toFixed(n, d=2) {
+  return (typeof n === 'number' && isFinite(n)) ? n.toFixed(d) : 'N/A';
+}
+
+/* ===== Map module ===== */
+let weatherMap = null;
+let clickMarker = null;
+
+function initWeatherMap(initialLat = 51.5074, initialLon = -0.1278, initialZoom = 6) {
+  if (weatherMap) return weatherMap; // already initialized
+
+  // Base map
+  weatherMap = L.map('map', { zoomControl: true }).setView([initialLat, initialLon], initialZoom);
+  const base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(weatherMap);
+
+  // Weather overlays (OpenWeatherMap tiles)
+  const clouds = L.tileLayer(
+    `https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=${API_KEY}`,
+    { opacity: 0.5, attribution: 'Clouds © OpenWeatherMap' }
+  );
+  const precip = L.tileLayer(
+    `https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${API_KEY}`,
+    { opacity: 0.5, attribution: 'Precipitation © OpenWeatherMap' }
+  );
+  const temp = L.tileLayer(
+    `https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${API_KEY}`,
+    { opacity: 0.5, attribution: 'Temperature © OpenWeatherMap' }
+  );
+
+  // Show one overlay by default
+  clouds.addTo(weatherMap);
+
+  // Layer toggle
+  L.control.layers(
+    { 'OpenStreetMap': base },
+    { 'Clouds': clouds, 'Precipitation': precip, 'Temperature': temp }
+  ).addTo(weatherMap);
+
+  // Map click → fetch weather + update marker/popup + recenter
+  weatherMap.on('click', async (e) => {
+    const { lat, lng } = e.latlng;
+    await selectLocationAndShowWeather(lat, lng, true);
+  });
+
+  return weatherMap;
+}
+
+/* Click handler in one place so you can reuse it programmatically too */
+async function selectLocationAndShowWeather(lat, lon, recenter = false) {
+  try {
+    showMapLoading(true);
+
+    // Fetch current weather
+    const url = `${BASE_URL}weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Weather fetch failed');
+    const data = await res.json();
+
+    // Create readable popup content
+    const name = data?.name || 'Selected Location';
+    const temp = data?.main?.temp;
+    const wind = data?.wind?.speed;
+    const hum  = data?.main?.humidity;
+    const desc = (data?.weather?.[0]?.description || 'No description').replace(/\b\w/g, c => c.toUpperCase());
+
+    const popupHtml = `
+      <b>${name}</b><br>
+      ${desc}<br>
+      🌡️ ${toFixed(temp, 0)} °C &nbsp;|&nbsp; 💨 ${toFixed(wind, 1)} m/s &nbsp;|&nbsp; 💧 ${hum ?? 'N/A'}%
+      <div style="margin-top:6px; font-size:12px; opacity:.8;">
+        Lat: ${toFixed(lat, 2)}, Lon: ${toFixed(lon, 2)}
+      </div>
+    `;
+
+    // Keep only one marker
+    if (clickMarker) weatherMap.removeLayer(clickMarker);
+    clickMarker = L.marker([lat, lon]).addTo(weatherMap).bindPopup(popupHtml).openPopup();
+
+    // Recenter optionally
+    if (recenter) weatherMap.setView([lat, lon], Math.max(weatherMap.getZoom(), 10));
+
+    // Optional: update your side panels/cards if present
+    if (typeof fetchWeatherByCoords === 'function') {
+      // Uses your app’s existing function to refresh current + forecast panels
+      await fetchWeatherByCoords(lat, lon, name);
+    } else if (typeof updatePanelsHook === 'function') {
+      // Or a custom hook you define elsewhere
+      updatePanelsHook(data, lat, lon);
+    }
+  } catch (err) {
+    console.error(err);
+    alert('Could not load weather for that point. Check network/API key.');
+  } finally {
+    showMapLoading(false);
+  }
+}
+
+/* ===== Init on load ===== */
+document.addEventListener('DOMContentLoaded', () => {
+  initWeatherMap(); // London by default
+  // If you want to preselect London and show popup immediately, uncomment:
+  // selectLocationAndShowWeather(51.5074, -0.1278, false);
 });
