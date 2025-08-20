@@ -24,7 +24,7 @@ let currentUnit = 'metric'; // 'metric' (°C, m/s) or 'imperial' (°F, mph)
 let lastLocation = null;    // { lat, lon, cityName }
 let favorites = [];         // not implemented fully (placeholders)
 let compare = [];           // not implemented fully (placeholders)
-// let weatherMap;             // for Leaflet map instance
+ let weatherMap;             // for Leaflet map instance
 
 // --- Events ---
 locationForm.addEventListener('submit', function (e) {
@@ -261,67 +261,6 @@ function addFavorite(city) { /* TODO */ }
 function renderFavorites()   { /* TODO */ }
 function compareCityWeather(city) { /* TODO */ }
 function renderCompare() { /* TODO */ }
-
-
-// Utility: Show interactive weather map with OpenWeatherMap layers
-// Initialize map
-  //function initMap() {
-   // weatherMap = L.map("map").setView([51.505, -0.09], 5); // default: London
-
-    // Base layer
-   // L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    //  attribution: "© OpenStreetMap contributors"
-   // }).addTo(weatherMap);
-
-    // Weather overlay layers
-   // const clouds = L.tileLayer(
-   //    `https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=${apiKey}`,
-   //    { opacity: 0.5 }
-   // );
-   // const precip = L.tileLayer(
-   //    `https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${apiKey}`,
-   //    { opacity: 0.5 }
-   // );
-   // const temp = L.tileLayer(
-   //   `https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${apiKey}`,
-   //   { opacity: 0.5 }
-   // );
-
-    // Add default layers
-   // clouds.addTo(weatherMap);
-
-    // Layer toggle control
-   // L.control.layers(null, {
-     // "Clouds": clouds,
-     // "Precipitation": precip,
-     // "Temperature": temp
-   // }).addTo(weatherMap);
-
-    // Click event: fetch weather + add marker
-   // weatherMap.on("click", async function (e) {
-     // const { lat, lng } = e.latlng;
-
-      // Fetch current weather
-     // const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${apiKey}&units=metric`;
-     // const res = await fetch(url);
-     // const data = await res.json();
-
-     // const weatherInfo = `
-    //    <b>${data.name || "Selected Location"}</b><br>
-    //    Temp: ${data.main.temp} °C<br>
-     //   ${data.weather[0].description}
-     // `;
-
-      // Remove old marker if exists
-     // if (marker) weatherMap.removeLayer(marker);
-
-      // Add new marker with popup
-    //  marker = L.marker([lat, lng]).addTo(weatherMap).bindPopup(weatherInfo).openPopup();
-    //});
-  //}
-
-  // Call on load
-//  initMap();
 
 let marker;
 
