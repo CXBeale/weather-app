@@ -11,6 +11,105 @@
     /* min-height removed, restoring original state */
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+/* Import Google Font */
+/* Global Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #2c3e50;
+    line-height: 1.6;
+    background: linear-gradient(120deg, #f9fbfd 0%, #eaf4fc 100%);
+    transition: background 0.3s ease;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 600;
+    color: #1b263b;
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
+    border-bottom: none;
+}
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 25px !important;
+    padding: 0.5rem 1.4rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.btn-primary {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border: none;
+}
+.btn-primary:hover {
+    background: linear-gradient(135deg, #00c6fb, #005bea);
+    transform: translateY(-2px);
+}
+.btn-outline-light {
+    border-color: #f7f9fc;
+    color: #f7f9fc;
+}
+
+/* Cards */
+.card {
+    border-radius: 18px !important;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.85);
+}
+
+/* Forecast Cards */
+#hourly-forecast .forecast-card,
+#daily-forecast .forecast-card {
+    min-width: 110px;
+    border: none;
+    background: rgba(255,255,255,0.85);
+    border-radius: 14px;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    transition: background 0.2s ease;
+}
+#hourly-forecast .forecast-card:hover,
+#daily-forecast .forecast-card:hover {
+    background: rgba(255,255,255,0.95);
+}
+
+/* Map */
+#map {
+    border-radius: 20px;
+    margin-top: 1.5rem;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* Dark Mode */
+.dark-mode {
+    background: linear-gradient(120deg, #1c1c1c 0%, #2a2a2a 100%);
+    color: #f0f0f0;
+}
+.dark-mode .card {
+    background: rgba(40, 40, 40, 0.8);
+}
+.dark-mode .btn-primary {
+    background: linear-gradient(135deg, #005bea, #00c6fb);
+}
+.dark-mode .navbar {
+    background: linear-gradient(135deg, #141e30, #243b55) !important;
+}
+
 /* ================================
    Base page styles
    ================================ */
@@ -28,9 +127,7 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-/* ================================
-   Search form (rounded pill input + button)
-   ================================ */
+
 /* ================================
    Search form (rounded pill input + button)
    ================================ */
@@ -46,13 +143,12 @@ body {
     border-radius: 0 !important;
 }
 
-/* ================================
-   Current weather card
-   ================================ */
+
 /* ================================
    Current weather card
    ================================ */
 #weather-details.card {
+
     background: rgba(255,255,255,0.45);
     border-radius: 0;
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
@@ -72,6 +168,7 @@ body {
 }
 
 #fact-card {
+
     background: rgba(255,255,255,0.65);
     border-radius: 0;
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
@@ -112,9 +209,6 @@ body {
 /* ================================
    Forecast rows (hourly & daily)
    ================================ */
-/* ================================
-   Forecast rows (hourly & daily)
-   ================================ */
 #hourly-forecast,
 #daily-forecast {
     gap: 1rem;
@@ -140,13 +234,12 @@ body {
     /* (Optional) you can add scroll-snap if you want snapping later */
 }
 
+
 #daily-forecast .forecast-card {
     margin-bottom: 3rem;
 }
 
-/* ================================
-   Favorites list
-   ================================ */
+ main
 /* ================================
    Favorites list
    ================================ */
@@ -159,9 +252,7 @@ body {
     background: #f7f9fc;
 }
 
-/* ================================
-   Compare cities cards
-   ================================ */
+
 /* ================================
    Compare cities cards
    ================================ */
@@ -171,9 +262,7 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
-/* ================================
-   Unit / Theme toggles
-   ================================ */
+
 /* ================================
    Unit / Theme toggles
    ================================ */
@@ -184,9 +273,6 @@ body {
     min-width: 120px;
 }
 
-/* ================================
-   Suggestions text (helper tips)
-   ================================ */
 /* ================================
    Suggestions text (helper tips)
    ================================ */
@@ -205,11 +291,6 @@ body {
     margin-right: auto;
     min-width: 180px;
 }
-
-/* ================================
-   Dynamic backgrounds for weather
-   (Your JS toggles these classes on <body>)
-   ================================ */
 /* ================================
    Dynamic backgrounds for weather
    (Your JS toggles these classes on <body>)
@@ -227,10 +308,7 @@ body {
     background: linear-gradient(120deg, #d7d2cc 0%, #304352 100%);
 }
 
-/* ================================
-   Dark mode override
-   (Toggled by adding .dark-mode to <body>)
-   ================================ */
+
 /* ================================
    Dark mode override
    (Toggled by adding .dark-mode to <body>)
@@ -241,10 +319,11 @@ body {
 }
 .dark-mode .navbar {
     background: #232526 !important; /* keep navbar dark even if Bootstrap overrides */
-    background: #232526 !important; /* keep navbar dark even if Bootstrap overrides */
 }
 /* Make cards readable on dark backgrounds */
+
 /* Make cards readable on dark backgrounds */
+ main
 .dark-mode #hourly-forecast .forecast-card,
 .dark-mode #daily-forecast .forecast-card,
 .dark-mode #favorites-list .list-group-item,
@@ -262,10 +341,13 @@ body {
     text-align: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.18);
 }
+
 .dark-mode #weather-details.card,
 .dark-mode #weather-details.card * {
     color: #fff !important;
 }
 .dark-mode #weather-details.card {
     background: rgba(44,62,80,0.85);
+
 }
+
