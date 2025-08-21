@@ -413,7 +413,6 @@ h4 {
 #location-form {
     margin-top: 2rem;
 }
-=======
 
 /* Fix for navbar covering content: use margin on container instead of body padding */
 .container {
