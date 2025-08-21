@@ -105,17 +105,30 @@ Setup & Installation
 
 Deployment
 The app is deployed via GitHub Pages:
-Live App URL: [View the deployed app here](https://your-deployment-url.com)
+Live App URL: [https://cxbeale.github.io/weather-app/]
+
+ Website Screenshots
+
+Below are screenshots of the website displayed on desktop, tablet, and mobile devices:
+![Screenshot of responsive](assets/document/Screenshot_am_i_responsive.png)
 
 Testing
+
 HTML Validation
 
 - Validated using W3C Markup Validation Service – no major errors.
-CSS Validation
-- Validated using W3C CSS Validator – no critical errors.
-Accessibility
-- Google Lighthouse Audit reports a high accessibility score, ensuring the site is usable by people with disabilities.
 
+![HTML Validation Screenshot](assets/document/Screenshot_Html_checker.png)
+
+CSS Validation
+
+- Validated using W3C CSS Validator – no critical errors.
+![CSS Validation Screenshot](assets/document/Screenshot_css_checker.png)
+
+Accessibility
+
+- Google Lighthouse Audit reports a high accessibility score, ensuring the site is usable by people with disabilities.
+![Lighthouse Test Screenshot](assets/document/Screenshot_lighthouse.png)
 Browser & Device Testing
 
 Tested on:
