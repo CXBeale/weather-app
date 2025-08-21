@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5 {
 
 /* Buttons */
 .btn {
-    border-radius: 25px !important;
+    border-radius: 25px;
     padding: 0.5rem 1.4rem;
     font-size: 0.95rem;
     font-weight: 500;
@@ -48,18 +48,29 @@ h1, h2, h3, h4, h5 {
 }
 
 /* Cards */
-.card {
+/*.card {
     border-radius: 18px !important;
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(6px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     transition: transform 0.3s ease, background 0.3s ease;
 }
-.card:hover {
+/*.card:hover {
     transform: translateY(-4px);
     background: rgba(255, 255, 255, 0.85);
-}
+}*/
 
+/* ================================
+   Current weather card
+   ================================ */
+/* #weather-details.card {
+    background: rgba(255,255,255,0.85);
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    min-height: 220px;
+    margin-bottom: 1rem;
+}*/
 /* Forecast Cards */
 #hourly-forecast .forecast-card,
 #daily-forecast .forecast-card {
@@ -132,17 +143,7 @@ body {
 }
 
 
-/* ================================
-   Current weather card
-   ================================ */
-#weather-details.card {
-    background: rgba(255,255,255,0.85);
-    border: none;
-    border-radius: 20px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    min-height: 220px;
-    margin-bottom: 1rem;
-}
+
 
 #fact-card {
     background: rgba(255,255,255,0.95);
@@ -204,10 +205,8 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     min-width: 120px;
     flex: 0 0 auto;       /* keeps each card from shrinking; good for horizontal scroll */
-    flex: 0 0 auto;       /* keeps each card from shrinking; good for horizontal scroll */
     padding: 1rem;
     text-align: center;
-    /* (Optional) you can add scroll-snap if you want snapping later */
     /* (Optional) you can add scroll-snap if you want snapping later */
 }
 
@@ -224,15 +223,6 @@ body {
     background: #f7f9fc;
 }
 
-
-/* ================================
-   Compare cities cards
-   ================================ */
-#compare-cities .card {
-    margin-bottom: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
 
 
 /* ================================
