@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5 {
 
 /* Buttons */
 .btn {
-    border-radius: 25px !important;
+    border-radius: 25px;
     padding: 0.5rem 1.4rem;
     font-size: 0.95rem;
     font-weight: 500;
@@ -62,18 +62,29 @@ h1, h2, h3, h4, h5 {
 }
 
 /* Cards */
-.card {
+/*.card {
     border-radius: 18px !important;
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(6px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     transition: transform 0.3s ease, background 0.3s ease;
 }
-.card:hover {
+/*.card:hover {
     transform: translateY(-4px);
     background: rgba(255, 255, 255, 0.85);
-}
+}*/
 
+/* ================================
+   Current weather card
+   ================================ */
+/* #weather-details.card {
+    background: rgba(255,255,255,0.85);
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    min-height: 220px;
+    margin-bottom: 1rem;
+}*/
 /* Forecast Cards */
 #hourly-forecast .forecast-card,
 #daily-forecast .forecast-card {
@@ -233,7 +244,6 @@ body {
     padding: 1rem;
     text-align: center;
     /* (Optional) you can add scroll-snap if you want snapping later */
-    /* (Optional) you can add scroll-snap if you want snapping later */
 }
 
 
@@ -374,6 +384,36 @@ body {
 /* ================================
    Additional utility class
    ================================ */
+
+/* Footer Styling 2 - Even Smaller */
+footer {
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  color: #fff;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+  margin-top: 1rem;
+}
+footer a, footer a:visited {
+  color: #fff;
+  text-decoration: underline dotted;
+  transition: color 0.2s;
+}
+footer a:hover {
+  color: #ffe082;
+  text-decoration: underline;
+}
+footer .fab, footer .fas {
+  margin: 0 2px;
+  font-size: 1em;
+  vertical-align: middle;
+}
+footer .py-3 {
+  padding-top: 0.3rem !important;
+  padding-bottom: 0.3rem !important;
+}
+footer p {
+  margin-bottom: 0.2rem;
+  font-size: 0.95em;
+}
 
 
 

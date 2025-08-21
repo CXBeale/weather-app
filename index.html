@@ -39,13 +39,13 @@
       </div>
     </div>
   </nav>
-  <div class="container">
+  <div class="container d-flex flex-column align-items-center">
 
     <!-- Unsplash background container for weather and forecast -->
-    <div id="unsplash-bg-container">
+    <div id="unsplash-bg-container" class="w-100">
       <!-- Search & Location -->
-      <div class="row mb-4">
-        <div class="col-md-8 mx-auto">
+      <div class="row mb-4 justify-content-center">
+        <div class="col-md-8">
           <form id="location-form" class="input-group">
             <input type="text" id="location-input" class="form-control" placeholder="Enter city or location" />
             <button type="submit" class="btn btn-primary">Search</button>
@@ -55,14 +55,14 @@
           </form>
         </div>
       </div>
-      <div class="row mb-4">
+      <div class="row mb-4 justify-content-center">
         <div class="col-md-12">
           <div id="suggestions" class="mb-3"></div>
         </div>
       </div>
       <!-- Current Weather -->
-      <div class="row mb-4">
-        <div class="col-md-6 mx-auto">
+      <div class="row mb-4 justify-content-center">
+        <div class="col-md-6">
           <div id="weather-details" class="card shadow-sm p-4 text-center">
             <!-- JS will populate current weather here -->
           </div>
@@ -76,17 +76,17 @@
         </div>
       </div>
       <!-- Forecasts -->
-      <div class="row mb-4">
+      <div class="row mb-4 justify-content-center"></div>
         <div class="col-md-12">
-          <h4>Hourly Forecast</h4>
-          <div id="hourly-forecast" class="d-flex flex-row overflow-auto mb-3"></div>
-          <h4>5 Day Forecast</h4>
-          <div id="daily-forecast" class="d-flex flex-row overflow-auto"></div>
+          <h4 class="text-center">Hourly Forecast</h4>
+          <div id="hourly-forecast" class="d-flex flex-row overflow-auto mb-3 justify-content-center"></div>
+          <h4 class="text-center">5 Day Forecast</h4>
+          <div id="daily-forecast" class="d-flex flex-row overflow-auto justify-content-center"></div>
         </div>
       </div>
     </div> <!-- End unsplash-bg-container -->
     <!-- Favorites & Compare -->
-    <div class="row mb-4 justify-content-center">
+    <div class="row mb-4 justify-content-center w-100"></div>
       <div class="col-lg-8 col-md-10">
         <div class="p-4 text-center" style="background: transparent; border: none; box-shadow: none; border-radius: 0;">
           <h5>Favourites</h5>
@@ -95,7 +95,6 @@
         </div>
       </div>
     </div>
-    <!-- Toggles -->
   </div>
   <!-- Map for location -->
   <div id="map" style="height: 500px; width: 100%;"></div>
@@ -124,9 +123,9 @@
         <a href="https://www.linkedin.com/in/idil-ismail-2398799b/" target="_blank" title="Idil Ismail"><i
             class="fab fa-linkedin fa-lg"></i></a>
       </p>
-    </div>
-    <p><a href="404.html">Test 404 Page</a></p>
-    </div>
+    <p class="text-start">
+      <a href="404.html" title="Test 404 Page"><i class="fas fa-exclamation-triangle"></i></a>
+    </p>
   </footer>
 
   <!-- Font Awesome kit -->
