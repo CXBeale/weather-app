@@ -25,6 +25,7 @@ body {
 /* Subtle shadow under the navbar */
 .navbar {
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
 }
 
 /* ================================
@@ -329,4 +330,69 @@ body {
 .col-md-12 {
     text-align: center;
 }
+
+.favorites-heading-btn {
+    background: rgba(255,255,255,0.65) !important;
+    border-radius: 0 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    padding: 0.35em 1.2em !important;
+    margin-bottom: 1rem !important;
+    border: 1px solid #bbb !important;
+    color: #222 !important;
+    font-weight: 500;
+}
+#location-form {
+    margin-top: 2rem;
+}
+
+/* Fix for navbar covering content: use margin on container instead of body padding */
+.container {
+  margin-top: 1rem;
+}
+@media (max-width: 991.98px) {
+  .container {
+    margin-top: 120px;
+  }
+}
+body {
+   padding-top: 0 !important; 
+}
+
+/* Footer Styling */
+footer {
+width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: relative;
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  color: #fff;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  
+}
+footer a, footer a:visited {
+  color: #fff;
+  text-decoration: underline dotted;
+  transition: color 0.2s;
+}
+footer a:hover {
+  color: #ffe082;
+  text-decoration: underline;
+}
+footer .fab {
+  margin: 0 2px;
+  font-size: 1em;
+}
+footer .py-3 {
+  padding-top: 0.4rem !important;
+  padding-bottom: 0.4rem !important;
+}
+footer p {
+  margin-bottom: 0.2rem;
+}
+
+
 
