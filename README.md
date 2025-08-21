@@ -1,5 +1,4 @@
-🌦️ Weather App
-
+# 🌦️ Weather App
 
 Project Board
 This project followed Agile methodology, with tasks tracked on a project board to manage user stories, features, and bugs. Early deployment ensured continuous visibility of changes during development.
@@ -9,6 +8,7 @@ The Weather App is a responsive, interactive web application that provides real-
 This project demonstrates the integration of multiple APIs, Bootstrap components, Leaflet maps, and JavaScript DOM manipulation to create a dynamic and user-friendly interface.
 
 Features
+
 - Search by city/location – fetches real-time weather data
 - Geolocation auto-detect – detect user’s location and show current weather
 - Current weather details – temperature, conditions, icons, etc.
@@ -23,49 +23,51 @@ Features
 
 User Experience (UX)
 Target Audience
-* People who want a quick and accessible way to check the weather
-* Travellers planning trips or daily commutes
-* Learners interested in how weather apps integrate with APIs and maps
+
+- People who want a quick and accessible way to check the weather
+- Travellers planning trips or daily commutes
+- Learners interested in how weather apps integrate with APIs and maps
+
 User Stories
-* As a user, I want to search for a city so I can see its current weather.
-* As a user, I want to auto-detect my location so I don’t need to type it.
-* As a user, I want to switch between °C and °F.
-* As a user, I want to save favourite cities for quick access.
-* As a user, I want to compare weather in multiple cities.
-* As a user, I want the app to look good in both dark and light mode.
-* As a user, I want to see hourly and daily forecasts.
-* As a user, I want to see my searched city on a map.
+
+- As a user, I want to search for a city so I can see its current weather.
+- As a user, I want to auto-detect my location so I don’t need to type it.
+- As a user, I want to switch between °C and °F.
+- As a user, I want to save favourite cities for quick access.
+- As a user, I want to compare weather in multiple cities.
+- As a user, I want the app to look good in both dark and light mode.
+- As a user, I want to see hourly and daily forecasts.
+- As a user, I want to see my searched city on a map.
 
 Wireframes
 Wireframes were created before development to guide layout and design:
 
-
-
-
 Design Choices
 Color Scheme
 
-* Light gradient backgrounds to represent different weather conditions (sunny, rainy, cloudy, snowy).
-* Dark mode support for readability in low-light environments.
+- Light gradient backgrounds to represent different weather conditions (sunny, rainy, cloudy, snowy).
+- Dark mode support for readability in low-light environments.
 Fonts
-* Standard system fonts for readability.
-* Slightly larger, bold fonts for key weather data (temperature, city names) for better visibility.
+- Standard system fonts for readability.
+- Slightly larger, bold fonts for key weather data (temperature, city names) for better visibility.
 
 Technologies Used
-* HTML5 – basic structure of the app
-* CSS3 – styling, layout, colour schemes
-* Bootstrap 5 – responsive grid system and UI components
-* JavaScript (ES6+) – DOM manipulation, API integration
-* Leaflet.js – map integration
-* Font Awesome – icons
-* OpenWeatherMap API – fetch real-time weather and forecast data
-* GitHub Pages – deployment of the live app
+
+- HTML5 – basic structure of the app
+- CSS3 – styling, layout, colour schemes
+- Bootstrap 5 – responsive grid system and UI components
+- JavaScript (ES6+) – DOM manipulation, API integration
+- Leaflet.js – map integration
+- Font Awesome – icons
+- OpenWeatherMap API – fetch real-time weather and forecast data
+- GitHub Pages – deployment of the live app
 
 API Integration
 The OpenWeatherMap API is used to retrieve real-time weather and 5-day forecast data based on user input.
-* Fetch is used to make asynchronous API calls.
-* Responses are processed in JSON format.
-* DOM is dynamically updated with weather information including temperature, conditions, and forecast cards.
+
+- Fetch is used to make asynchronous API calls.
+- Responses are processed in JSON format.
+- DOM is dynamically updated with weather information including temperature, conditions, and forecast cards.
 
 File Structure
 bash:
@@ -83,127 +85,72 @@ Setup & Installation
 
 1. Clone the repository:
 
-git clone https://github.com/your-username/weather-app.git
-cd weather-app
+   ```bash
+   git clone https://github.com/your-username/weather-app.git
+   cd weather-app
+   ```
 
-2. Open index.html in your browser.
+2. Open `index.html` in your browser.
 
-3. Replace the placeholder API key in script.js with your own from OpenWeatherMap:
+3. Replace the placeholder API key in `script.js` with your own from OpenWeatherMap:
 
-const apiKey = "415b5436af0634bd2fea085e6b03c4e4";
+   ```js
+   const apiKey = "415b5436af0634bd2fea085e6b03c4e4";
+   ```
 
 4. Run locally using Live Server in VSCode for best results.
 
-
-
-
 Deployment
 The app is deployed via GitHub Pages:
-1. Push your repository to GitHub.
-2. Go to Settings > Pages.
-3. Select Main Branch as the source, then save.
-4. Your app will be live. 
 Live App URL: [deployed url goes here]
 
 Testing
 HTML Validation
-* Validated using W3C Markup Validation Service – no major errors.
+
+- Validated using W3C Markup Validation Service – no major errors.
 CSS Validation
-* Validated using W3C CSS Validator – no critical errors.
+- Validated using W3C CSS Validator – no critical errors.
 Accessibility
-* Google Lighthouse Audit reports a high accessibility score, ensuring the site is usable by people with disabilities.
+- Google Lighthouse Audit reports a high accessibility score, ensuring the site is usable by people with disabilities.
+
 Browser & Device Testing
+
 Tested on:
-* ✅ iPhone (Safari, Chrome)
-* ✅ Desktop (Mac/Windows)
-* ✅ Chrome Developer Tools (responsive modes)
-* ✅ Browsers: Chrome, Edge, Safari
+
+- ✅ iPhone (Safari, Chrome)
+- ✅ Desktop (Mac/Windows)
+- ✅ Chrome Developer Tools (responsive modes)
+- ✅ Browsers: Chrome, Edge, Safari
+
 The site functioned as expected across all tested devices and browsers.
 
 Bugs
-* Some API calls may fail if an invalid city name is entered.
-* Reloading the page clears favourites and compare list (localStorage persistence planned as future enhancement).
+
+- Some API calls may fail if an invalid city name is entered.
+- Reloading the page clears favourites and compare list (localStorage persistence planned as future enhancement).
 
 Future Enhancements
-* Save favourites and compare cities using localStorage.
-* Add humidity, wind speed, sunrise/sunset data.
-* Loading spinners while fetching API data.
-* Improve accessibility with ARIA roles and keyboard navigation.
-* Add additional API integration for air quality index.
+
+- Save favourites and compare cities using localStorage.
+- Add humidity, wind speed, sunrise/sunset data.
+- Loading spinners while fetching API data.
+- Improve accessibility with ARIA roles and keyboard navigation.
+- Add additional API integration for air quality index.
 
 Credits
-* OpenWeatherMap API – real-time weather data
-* Bootstrap – responsive framework and components
-* Leaflet.js – map integration
-* Font Awesome – icons
-* Google Fonts – for readable typography
-* Favicon.io – for favicon generation
-* Code Institute – project templates and guidance
-* Team Members:
-    * Christian Beale
-    * Nick Ncube
-    * Soumya Sharma
-    * Idil Ismail
+
+- OpenWeatherMap API – real-time weather data
+- Bootstrap – responsive framework and components
+- Leaflet.js – map integration
+- Font Awesome – icons
+- Google Fonts – for readable typography
+- Favicon.io – for favicon generation
+- Code Institute – project templates and guidance
+- Team Members:
+  - Christian Beale
+  - Nick Ncube
+  - Soumya Sharma
+  - Idil Ismail
 
 License
 This project is for educational purposes and coursework submission.
-=======
-
-## Fonts
-
-Standard fonts for readability and consistent design.
-Slightly larger, bold fonts for key weather information to improve visibility.
-
-## Wireframes
-
-Wireframes were created to design the weather app layout:
-Wireframes were created to design the weather app layout:
-
-![wireframes](assets/images/wireframes.png)
-
-## Testing
-
-### HTML Validation
-
-Initial HTML validation was done using the W3C Markup Validation Service.
-
-### CSS Validation
-
-CSS validation was performed using W3C's CSS Validator.
-
-## Accessibility
-
-Google Lighthouse audit reports an accessibility score of --%, ensuring users with disabilities can access the site effectively.
-Browser and Device Testing
-Tested on multiple devices and browsers for responsiveness:
-iPhone
-Desktop
-Chrome Developer Tools (simulating various devices)
-Browsers: Chrome, Edge, and Safari
-Site functioned as expected across all tested platforms.
-
-## Bugs
-
-## Deployment
-
-The app was deployed using GitHub Pages:
-
-In the GitHub repository, navigate to Settings.
-Select Pages from the left-hand menu.
-Choose the Main Branch as the source, then save.
-The page will automatically be published.
-Live App URL: Weather Web App
-
-We used Agile methodology, with early deployment to see every change live, aiding the development process.
-
-## Future Enhancements
-
-## Credits
-
-OpenWeatherMap API: Used for fetching live weather data.
-Bootstrap: For layout, components, and responsive design.
-Code Institute: For project templates and guidance.
-Google Font: For fonts.
-Favicon: For favicon image.
-Team Members: Idil Ismail, Christian Beale , Nick Ncube , and Soumya Sharma, for contributing to the development and testing.
-
