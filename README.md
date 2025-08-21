@@ -43,7 +43,7 @@ User Stories
 
 Wireframes
 Wireframes were created before development to guide layout and design:
-![Wireframe](assets/images/wireframe.png)
+![Wireframe](assets/images/wireframes.png)
 
 Design Choices
 Color Scheme
