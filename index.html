@@ -21,7 +21,7 @@
 
 <body>
   <!-- Navbar/Header -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-0">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Weather App</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
@@ -30,9 +30,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <button id="theme-toggle" class="btn btn-outline-light">
-              Dark Mode
-            </button>
+            <button id="unit-toggle" class="btn btn-outline-light me-2">°C / °F</button>
+          </li>
+          <li class="nav-item">
+            <button id="theme-toggle" class="btn btn-outline-light">Dark Mode</button>
           </li>
         </ul>
       </div>
@@ -40,68 +41,61 @@
   </nav>
   <div class="container">
 
-
-    <!-- Search & Location -->
-    <div class="row mb-4">
-      <div class="col-md-8 mx-auto">
-        <form id="location-form" class="input-group">
-          <input type="text" id="location-input" class="form-control" placeholder="Enter city or location" />
-          <button type="submit" class="btn btn-primary">Search</button>
-          <button type="button" id="geo-btn" class="btn btn-outline-secondary ms-2">
-            <i class="fas fa-location-arrow"></i> Auto-detect
-          </button>
-        </form>
+    <!-- Unsplash background container for weather and forecast -->
+    <div id="unsplash-bg-container">
+      <!-- Search & Location -->
+      <div class="row mb-4">
+        <div class="col-md-8 mx-auto">
+          <form id="location-form" class="input-group">
+            <input type="text" id="location-input" class="form-control" placeholder="Enter city or location" />
+            <button type="submit" class="btn btn-primary">Search</button>
+            <button type="button" id="geo-btn" class="btn btn-outline-secondary ms-2">
+              <i class="fas fa-location-arrow"></i> My Location
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
-    <div class="row mb-4">
-      <div class="col-md-12">
-        <div id="suggestions" class="mb-3"></div>
+      <div class="row mb-4">
+        <div class="col-md-12">
+          <div id="suggestions" class="mb-3"></div>
+        </div>
       </div>
-    </div>
-    <!-- Current Weather -->
-    <div class="row mb-4">
-  <div class="col-md-6 mx-auto">
-    <div id="weather-details" class="card shadow-sm p-4 text-center">
-      <!-- JS will populate current weather here -->
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div id="fact-card" class="card shadow-sm p-4 text-center">
-      <h5>Weather Fact</h5>
-      <div id="weather-fact" class="mb-3"></div>
-      <button id="new-fact-btn" class="btn btn-info">New Fact</button>
-    </div>
-  </div>
-</div>
-    
-    <!-- Forecasts -->
-    <div class="row mb-4">
-      <div class="col-md-12">
-        <h4>Hourly Forecast</h4>
-        <div id="hourly-forecast" class="d-flex flex-row overflow-auto mb-3"></div>
-        <h4>Daily Forecast</h4>
-        <div id="daily-forecast" class="d-flex flex-row overflow-auto"></div>
+      <!-- Current Weather -->
+      <div class="row mb-4">
+        <div class="col-md-6 mx-auto">
+          <div id="weather-details" class="card shadow-sm p-4 text-center">
+            <!-- JS will populate current weather here -->
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div id="fact-card" class="card shadow-sm p-4 text-center">
+            <h5>Weather Fact</h5>
+            <div id="weather-fact" class="mb-3"></div>
+            <button id="new-fact-btn" class="btn btn-info">New Fact</button>
+          </div>
+        </div>
       </div>
-    </div>
+      <!-- Forecasts -->
+      <div class="row mb-4">
+        <div class="col-md-12">
+          <h4>Hourly Forecast</h4>
+          <div id="hourly-forecast" class="d-flex flex-row overflow-auto mb-3"></div>
+          <h4>5 Day Forecast</h4>
+          <div id="daily-forecast" class="d-flex flex-row overflow-auto"></div>
+        </div>
+      </div>
+    </div> <!-- End unsplash-bg-container -->
     <!-- Favorites & Compare -->
-    <div class="row mb-4">
-      <div class="col-md-6">
-        <h5>Favorites</h5>
-        <ul id="favorites-list" class="list-group"></ul>
-      </div>
-      <div class="col-md-6">
-        <h5>Compare Cities</h5>
-        <div id="compare-cities" class="row"></div>
-      </div>
-    </div>
-    <!-- Toggles -->
-    <div class="row mb-4">
-      <div class="col-md-12 d-flex justify-content-between align-items-center">
-        <div>
-          <button id="unit-toggle" class="btn btn-outline-primary">°C / °F</button>
+    <div class="row mb-4 justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <div class="p-4 text-center" style="background: transparent; border: none; box-shadow: none; border-radius: 0;">
+          <h5>Favourites</h5>
+          <button id="favorites-toggle" class="btn btn-outline-primary mb-3" type="button">Show/Hide Favorites</button>
+          <ul id="favorites-list" class="list-group list-group-flush"></ul>
         </div>
       </div>
     </div>
+    <!-- Toggles -->
   </div>
   <!-- Map for location -->
   <div id="map" style="height: 500px; width: 100%;"></div>
@@ -130,9 +124,9 @@
         <a href="https://www.linkedin.com/in/idil-ismail-2398799b/" target="_blank" title="Idil Ismail"><i
             class="fab fa-linkedin fa-lg"></i></a>
       </p>
-    </div>
-    <p><a href="404.html">Test 404 Page</a></p>
-    </div>
+    <p class="text-start">
+      <a href="404.html" title="Test 404 Page"><i class="fas fa-exclamation-triangle"></i></a>
+    </p>
   </footer>
 
   <!-- Font Awesome kit -->
