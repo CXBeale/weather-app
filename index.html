@@ -30,6 +30,9 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
+            <button id="unit-toggle" class="btn btn-outline-primary">°C / °F</button>
+          </li>
+          <li class="nav-item">
             <button id="theme-toggle" class="btn btn-outline-light">Dark Mode</button>
           </li>
         </ul>
@@ -83,21 +86,12 @@
     </div> <!-- End unsplash-bg-container -->
     <!-- Favorites & Compare -->
     <div class="row mb-4">
-      <div class="col-md-6">
-        <h5>Favourites</h5>
-        <button id="favorites-toggle" class="btn btn-outline-secondary mb-2" type="button">Show/Hide Favorites</button>
-        <ul id="favorites-list" class="list-group"></ul>
-      </div>
-      <div class="col-md-6">
-        <h5>Compare Cities</h5>
-        <div id="compare-cities" class="row"></div>
-      </div>
-    </div>
-    <!-- Toggles -->
-    <div class="row mb-4">
-      <div class="col-md-12 d-flex justify-content-between align-items-center">
-        <div>
-          <button id="unit-toggle" class="btn btn-outline-primary">°C / °F</button>
+      <div class="col-md-6 mx-auto">
+        <div class="text-center">
+          <div class="d-flex flex-column align-items-center">
+            <button id="recent-searches-toggle" class="btn btn-outline-primary mb-3 favorites-heading-btn" type="button">View/Hide Recent Searches</button>
+            <ul id="favorites-list" class="list-group"></ul>
+          </div>
         </div>
       </div>
     </div>

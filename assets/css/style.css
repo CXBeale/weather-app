@@ -8,7 +8,7 @@
     z-index: 0;
     padding-left: 2vw;
     padding-right: 2vw;
-    /* min-height removed, restoring original state */
+    padding-top: 2rem;
 }
 
 /* ================================
@@ -43,7 +43,18 @@ body {
     font-size: 1.1rem;
 }
 #geo-btn {
+    background: rgba(255,255,255,0.65) !important;
     border-radius: 0 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    padding: 0.35em 1.2em !important;
+    border: 1px solid #bbb !important;
+    color: #222 !important;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+#geo-btn:hover, #geo-btn:focus {
+    background: rgba(255,255,255,0.85) !important;
+    color: #222 !important;
 }
 
 /* ================================
@@ -94,19 +105,26 @@ body {
     align-items: center;
     justify-content: center;
 }
-#new-fact-btn {
+#new-fact-btn,
+#favorites-toggle,
+#recent-searches-toggle {
+    background: rgba(255,255,255,0.65) !important;
+    border-radius: 0 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    padding: 0.35em 1.2em !important;
     margin-top: 0.5rem;
-    background-color: #0d6efd;
-    color: #fff;
-    border: none;
-    border-radius: 30px;
-    padding: 0.5rem 1.5rem;
-    font-size: 1rem;
-    transition: background 0.2s;
+    margin-bottom: 1rem !important;
+    border: 1px solid #bbb !important;
+    color: #222 !important;
+    font-weight: 500;
+    transition: background 0.2s, box-shadow 0.2s;
 }
-#new-fact-btn:hover, #new-fact-btn:focus {
-    background-color: #0b5ed7;
-    color: #fff;
+#new-fact-btn:hover, #new-fact-btn:focus,
+#favorites-toggle:hover, #favorites-toggle:focus,
+#recent-searches-toggle:hover, #recent-searches-toggle:focus {
+    background: rgba(255,255,255,0.85) !important;
+    color: #222 !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
 }
 
 /* ================================
@@ -115,15 +133,17 @@ body {
 /* ================================
    Forecast rows (hourly & daily)
    ================================ */
+#hourly-forecast {
+    margin-bottom: 2rem;
+}
 #hourly-forecast,
 #daily-forecast {
     gap: 1rem;
-    /* ADDED: make the list display as a horizontal row and scroll if overflow */
-    display: flex;        /* ensures forecast cards line up in a row */
-    overflow-x: auto;     /* allows horizontal scroll on small screens */
-    /* ADDED: make the list display as a horizontal row and scroll if overflow */
-    display: flex;        /* ensures forecast cards line up in a row */
-    overflow-x: auto;     /* allows horizontal scroll on small screens */
+    display: flex;
+    overflow-x: auto;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
 }
 
 
@@ -133,7 +153,7 @@ body {
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     min-width: 120px;
-    flex: 0 0 auto;       /* keeps each card from shrinking; good for horizontal scroll */
+    flex: 0 0 auto;
     padding: 1rem;
     text-align: center;
     /* (Optional) you can add scroll-snap if you want snapping later */
@@ -152,11 +172,25 @@ body {
    ================================ */
 #favorites-list {
     margin-top: 1rem;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+    border: none;
 }
 #favorites-list .list-group-item {
-    border-radius: 8px;
+    border-radius: 0;
     margin-bottom: 0.5rem;
-    background: #f7f9fc;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    font-size: 1.1rem;
+    font-family: inherit;
+    transition: background 0.2s;
+}
+#favorites-list .list-group-item:hover {
+    background: rgba(255,255,255,0.08);
+    box-shadow: none;
 }
 
 /* ================================
@@ -182,6 +216,23 @@ body {
     border-radius: 0;
     font-size: 1rem;
     min-width: 120px;
+}
+#unit-toggle {
+    background: rgba(255,255,255,0.15) !important;
+    border: 1px solid #fff !important;
+    color: #fff !important;
+    border-radius: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    padding: 0.35em 1.2em !important;
+    margin-right: 0.5rem;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+#unit-toggle:hover, #unit-toggle:focus {
+    background: rgba(255,255,255,0.35) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
 }
 
 /* ================================
@@ -268,4 +319,19 @@ body {
 }
 .dark-mode #weather-details.card {
     background: rgba(44,62,80,0.85);
+}
+.dark-mode h4 {
+    color: #fff !important;
+}
+h4 {
+    display: inline-block;
+    background: rgba(255,255,255,0.65);
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    padding: 0.35em 1.2em;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.col-md-12 {
+    text-align: center;
 }
