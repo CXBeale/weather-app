@@ -8,7 +8,7 @@
     z-index: 0;
     padding-left: 2vw;
     padding-right: 2vw;
-
+    padding-top: 2rem;
 }
 
 /* ================================
@@ -19,13 +19,13 @@ body {
     background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
     min-height: 100vh;
     transition: background 0.5s; /* smooth background changes */
+    transition: background 0.5s; /* smooth background changes */
 }
 
 /* Subtle shadow under the navbar */
 /* Subtle shadow under the navbar */
 .navbar {
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
 }
 
 /* ================================
@@ -106,7 +106,8 @@ body {
     justify-content: center;
 }
 #new-fact-btn,
-
+#favorites-toggle,
+#recent-searches-toggle {
     background: rgba(255,255,255,0.65) !important;
     border-radius: 0 !important;
     box-shadow: 0 2px 8px rgba(0,0,0,0.10);
@@ -119,7 +120,8 @@ body {
     transition: background 0.2s, box-shadow 0.2s;
 }
 #new-fact-btn:hover, #new-fact-btn:focus,
-
+#favorites-toggle:hover, #favorites-toggle:focus,
+#recent-searches-toggle:hover, #recent-searches-toggle:focus {
     background: rgba(255,255,255,0.85) !important;
     color: #222 !important;
     box-shadow: 0 4px 16px rgba(0,0,0,0.12);
@@ -137,7 +139,8 @@ body {
 #hourly-forecast,
 #daily-forecast {
     gap: 1rem;
-
+    display: flex;
+    overflow-x: auto;
     justify-content: center;
     align-items: stretch;
     width: 100%;
@@ -304,6 +307,7 @@ body {
     background: rgba(44,62,80,0.85);
     color: #f7f9fc;
 }
+
 .dark-mode #suggestions {
     color: #f8b500;
     background-color: rgba(44,62,80,0.85);
@@ -320,7 +324,9 @@ body {
 .dark-mode h4 {
     color: #fff !important;
 }
-
+h4 {
+    display: inline-block;
+    background: rgba(255,255,255,0.65);
     border-radius: 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.10);
     padding: 0.35em 1.2em;
@@ -330,69 +336,3 @@ body {
 .col-md-12 {
     text-align: center;
 }
-
-.favorites-heading-btn {
-    background: rgba(255,255,255,0.65) !important;
-    border-radius: 0 !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-    padding: 0.35em 1.2em !important;
-    margin-bottom: 1rem !important;
-    border: 1px solid #bbb !important;
-    color: #222 !important;
-    font-weight: 500;
-}
-#location-form {
-    margin-top: 2rem;
-}
-
-/* Fix for navbar covering content: use margin on container instead of body padding */
-.container {
-  margin-top: 1rem;
-}
-@media (max-width: 991.98px) {
-  .container {
-    margin-top: 120px;
-  }
-}
-body {
-   padding-top: 0 !important; 
-}
-
-/* Footer Styling */
-footer {
-width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  position: relative;
-    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
-  color: #fff;
-  box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
-  margin-top: 1rem;
-  font-size: 0.95rem;
-  
-}
-footer a, footer a:visited {
-  color: #fff;
-  text-decoration: underline dotted;
-  transition: color 0.2s;
-}
-footer a:hover {
-  color: #ffe082;
-  text-decoration: underline;
-}
-footer .fab {
-  margin: 0 2px;
-  font-size: 1em;
-}
-footer .py-3 {
-  padding-top: 0.4rem !important;
-  padding-bottom: 0.4rem !important;
-}
-footer p {
-  margin-bottom: 0.2rem;
-}
-
-
-
