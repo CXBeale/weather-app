@@ -1,3 +1,30 @@
+/* Dark mode support for footer */
+body.dark-mode .footer-custom {
+        background: #000;
+    color: #fff;
+}
+body.dark-mode .footer-custom a,
+body.dark-mode .footer-custom i,
+body.dark-mode .footer-custom p {
+    color: #fff !important;
+}
+/* Navbar gradient to match footer */
+.navbar.bg-primary {
+    background: linear-gradient(90deg, #3AAAF0 0%, #5E81F2 50%, #2154ED 100%) !important;
+}
+/* Footer custom styles */
+.footer-custom {
+            background: linear-gradient(90deg, #3AAAF0 0%, #5E81F2 50%, #2154ED 100%);
+            color: #fff;
+                        padding-top: 0.5rem;
+                        padding-bottom: 0.25rem;
+                margin-bottom: 0;
+}
+.footer-custom a,
+.footer-custom i,
+.footer-custom p {
+    color: #fff !important;
+}
 #unsplash-bg-container {
     width: 100vw;
     max-width: 100vw;
