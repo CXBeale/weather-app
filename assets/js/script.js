@@ -26,9 +26,9 @@ let weatherMap; // for Leaflet map instance
 
 // --- Events ---
 // Toggle favorites list visibility
-const favoritesToggle = document.getElementById('favorites-toggle');
-if (favoritesToggle && favoritesList) {
-  favoritesToggle.addEventListener('click', function () {
+const recentSearchesToggle = document.getElementById('recent-searches-toggle');
+if (recentSearchesToggle && favoritesList) {
+  recentSearchesToggle.addEventListener('click', function () {
     if (favoritesList.style.display === 'none') {
       favoritesList.style.display = '';
     } else {
