@@ -26,6 +26,7 @@ body {
 /* Subtle shadow under the navbar */
 .navbar {
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
 }
 
 /* ================================
@@ -356,11 +357,18 @@ body {
 
 /* Footer Styling */
 footer {
-  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: relative;
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
   color: #fff;
   box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
   margin-top: 1rem;
   font-size: 0.95rem;
+  
 }
 footer a, footer a:visited {
   color: #fff;
