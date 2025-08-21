@@ -1,5 +1,7 @@
 # 🌦️ Weather App
 
+[![View Live](https://img.shields.io/badge/View-Live-green)](https://your-deployment-url.com)
+
 Project Board
 This project followed Agile methodology, with tasks tracked on a project board to manage user stories, features, and bugs. Early deployment ensured continuous visibility of changes during development.
 
@@ -41,7 +43,7 @@ User Stories
 
 Wireframes
 Wireframes were created before development to guide layout and design:
-![Wireframe](assets/images/wireframe.png)
+![Wireframe](assets/images/wireframes.png)
 
 Design Choices
 Color Scheme
@@ -103,7 +105,7 @@ Setup & Installation
 
 Deployment
 The app is deployed via GitHub Pages:
-Live App URL: [deployed url goes here]
+Live App URL: [View the deployed app here](https://your-deployment-url.com)
 
 Testing
 HTML Validation
