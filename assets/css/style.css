@@ -112,7 +112,7 @@ body {
     transition: background 0.5s; /* smooth background changes */
 }
 
-/* Subtle shadow under the navbar */
+
 /* Subtle shadow under the navbar */
 .navbar {
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -324,10 +324,9 @@ body {
 .dark-mode .navbar {
     background: #232526 !important; /* keep navbar dark even if Bootstrap overrides */
 }
-/* Make cards readable on dark backgrounds */
+
 
 /* Make cards readable on dark backgrounds */
- main
 .dark-mode #hourly-forecast .forecast-card,
 .dark-mode #daily-forecast .forecast-card,
 .dark-mode #favorites-list .list-group-item,
@@ -359,7 +358,24 @@ body {
     color: #fff !important;
 }
 
-/* Make footer smaller and more compact */
+/* ================================
+   Additional utility class
+   ================================ */
+
+/* Fix for navbar covering content: use margin on container instead of body padding */
+.container {
+  margin-top: 1rem;
+}
+@media (max-width: 991.98px) {
+  .container {
+    margin-top: 120px;
+  }
+}
+body {
+   padding-top: 0 !important; 
+}
+
+/* Footer Styling */
 footer {
   background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
   color: #fff;
