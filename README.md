@@ -17,7 +17,6 @@ Features
 - Hourly & daily forecast – displayed in horizontally scrollable cards
 - Weather fun facts – random fact generator with refresh button
 - Favourites list – save commonly checked cities
-- Compare cities – view multiple locations’ weather side by side
 - Interactive map – Leaflet map centres on searched/detected location
 - Dark mode toggle – switch between light and dark themes
 - Unit toggle – °C / °F conversion
