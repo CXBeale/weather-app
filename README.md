@@ -16,7 +16,7 @@ Features
 - Current weather details – temperature, conditions, icons, etc.
 - Hourly & daily forecast – displayed in horizontally scrollable cards
 - Weather fun facts – random fact generator with refresh button
-- Favourites list – save commonly checked cities
+- Recent Searches– save recently checked cities
 - Interactive map – Leaflet map centres on searched/detected location
 - Dark mode toggle – switch between light and dark themes
 - Unit toggle – °C / °F conversion
@@ -155,6 +155,7 @@ Future Enhancements
 Credits
 
 - OpenWeatherMap API – real-time weather data
+- Unsplash API - to dynamically generate a background image based on the city and weather
 - Bootstrap – responsive framework and components
 - Leaflet.js – map integration
 - Font Awesome – icons
